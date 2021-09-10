@@ -20,6 +20,7 @@
 		EB2D2AB226E6648A0060E97C /* TableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AB126E6648A0060E97C /* TableUIView.swift */; };
 		EB2D2AB626E665340060E97C /* TableUIViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */; };
 		EB2D2AB726E665340060E97C /* TableUIViewControllerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */; };
+		EB2D2ABE26EB1B4C0060E97C /* 下載.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2ABD26EB1B4C0060E97C /* 下載.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EB2D2AB126E6648A0060E97C /* TableUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableUIView.swift; sourceTree = "<group>"; };
 		EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUIViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableUIViewControllerTableViewController.xib; sourceTree = "<group>"; };
+		EB2D2ABD26EB1B4C0060E97C /* 下載.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "下載.jpeg"; path = "../../../../下載.jpeg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				EB2D2A7B26E3595D0060E97C /* Assets.xcassets */,
 				EB2D2A7D26E3595D0060E97C /* LaunchScreen.storyboard */,
 				EB2D2A8026E3595D0060E97C /* Info.plist */,
+				EB2D2ABD26EB1B4C0060E97C /* 下載.jpeg */,
 			);
 			path = BookRent;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				EB2D2A7F26E3595D0060E97C /* LaunchScreen.storyboard in Resources */,
 				EB2D2A7C26E3595D0060E97C /* Assets.xcassets in Resources */,
 				EB2D2AA326E65CD10060E97C /* TableUIView.xib in Resources */,
+				EB2D2ABE26EB1B4C0060E97C /* 下載.jpeg in Resources */,
 				EB2D2AB726E665340060E97C /* TableUIViewControllerTableViewController.xib in Resources */,
 				EB2D2A9026E36BA40060E97C /* MainView.xib in Resources */,
 				EB2D2A7A26E3595C0060E97C /* Main.storyboard in Resources */,
