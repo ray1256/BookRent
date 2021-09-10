@@ -1,24 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ZS-OB-oty">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="WSS-1S-fdN">
+                                <rect key="frame" x="-262" y="112" width="938" height="212"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WSS-1S-fdN" secondAttribute="height" multiplier="67:10" constant="-482.40000000000009" id="fLg-jt-sB7"/>
+                                    <constraint firstAttribute="height" constant="212" id="qZ7-Cl-0my"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7D-T9-nKc" customClass="MainView" customModule="BookRent" customModuleProvider="target">
+                                <rect key="frame" x="56" y="400" width="302" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="fPE-wh-ejP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Account"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8W-W8-8CV" customClass="MainView" customModule="BookRent" customModuleProvider="target">
+                                <rect key="frame" x="56" y="454" width="302" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="OCt-ze-rW0"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Password"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dlV-Z8-X2X"/>
+                        <color key="backgroundColor" red="0.64313725489999995" green="0.40784313729999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="WSS-1S-fdN" firstAttribute="top" secondItem="dlV-Z8-X2X" secondAttribute="top" constant="68" id="6Zm-Sq-yuX"/>
+                            <constraint firstItem="dlV-Z8-X2X" firstAttribute="bottom" secondItem="K8W-W8-8CV" secondAttribute="bottom" constant="354" id="DMy-A8-j5C"/>
+                            <constraint firstItem="WSS-1S-fdN" firstAttribute="centerX" secondItem="7ZS-OB-oty" secondAttribute="centerX" id="DNq-ba-3UH"/>
+                            <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="m7D-T9-nKc" secondAttribute="trailing" constant="56" id="M0c-mX-RXF"/>
+                            <constraint firstItem="m7D-T9-nKc" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="56" id="XIs-AA-YUq"/>
+                            <constraint firstItem="m7D-T9-nKc" firstAttribute="top" secondItem="WSS-1S-fdN" secondAttribute="bottom" constant="76" id="YoP-Mk-UAV"/>
+                            <constraint firstItem="K8W-W8-8CV" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="56" id="cmy-8g-i8c"/>
+                            <constraint firstItem="m7D-T9-nKc" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="56" id="g2f-0O-pNs"/>
+                            <constraint firstItem="K8W-W8-8CV" firstAttribute="top" secondItem="m7D-T9-nKc" secondAttribute="bottom" id="kGg-g4-976"/>
+                            <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="K8W-W8-8CV" secondAttribute="trailing" constant="56" id="sTz-T0-QXB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="account" destination="m7D-T9-nKc" id="fyk-Az-tAN"/>
+                        <outlet property="password" destination="K8W-W8-8CV" id="DLP-r8-zd5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="103.79464285714285"/>
+        </scene>
+        <!--TableUI View Controller Table View Controller-->
+        <scene sceneID="oao-Wb-arx">
+            <objects>
+                <tableViewController id="xmt-tZ-NSo" customClass="TableUIViewControllerTableViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="emP-0k-DcW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.64313725489999995" green="0.40784313729999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="14" rowHeight="207" id="TWL-ju-6Ef" customClass="TableUIView" customModule="BookRent" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="207"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TWL-ju-6Ef" id="cCN-1y-UiA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xmt-tZ-NSo" id="cl9-33-ol4"/>
+                            <outlet property="delegate" destination="xmt-tZ-NSo" id="xDb-ct-Mac"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Kr6-gj-e9f"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aW-mE-R3M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852.17391304347836" y="99.776785714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wqh-DW-isv">
+            <objects>
+                <navigationController id="FdJ-7O-chz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Azo-ag-rbK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xmt-tZ-NSo" kind="relationship" relationship="rootViewController" id="kbl-Ft-apM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQr-4Y-HOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="853"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="938" height="840"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
