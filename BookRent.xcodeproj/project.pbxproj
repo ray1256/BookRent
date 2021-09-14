@@ -20,7 +20,13 @@
 		EB2D2AB226E6648A0060E97C /* TableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AB126E6648A0060E97C /* TableUIView.swift */; };
 		EB2D2AB626E665340060E97C /* TableUIViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */; };
 		EB2D2AB726E665340060E97C /* TableUIViewControllerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */; };
-		EB2D2ABE26EB1B4C0060E97C /* 下載.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2ABD26EB1B4C0060E97C /* 下載.jpeg */; };
+		EB2D2AC226EB44D00060E97C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AC026EB44D00060E97C /* CollectionViewCell.swift */; };
+		EB2D2AC326EB44D00060E97C /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2AC126EB44D00060E97C /* CollectionViewCell.xib */; };
+		EB2D2AC926EE3AEA0060E97C /* 2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AC826EE3AEA0060E97C /* 2ViewController.swift */; };
+		EB2D2ACD26EE3ECA0060E97C /* 1ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2ACC26EE3ECA0060E97C /* 1ViewController1.swift */; };
+		EB56585826EF444B00C3B2D7 /* PrintWhatDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56585726EF444B00C3B2D7 /* PrintWhatDelegate.swift */; };
+		EB56586226EF49C400C3B2D7 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56586026EF49C400C3B2D7 /* PhotoCollectionViewCell.swift */; };
+		EB56586326EF49C400C3B2D7 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56586126EF49C400C3B2D7 /* PhotoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +45,13 @@
 		EB2D2AB126E6648A0060E97C /* TableUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableUIView.swift; sourceTree = "<group>"; };
 		EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUIViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableUIViewControllerTableViewController.xib; sourceTree = "<group>"; };
-		EB2D2ABD26EB1B4C0060E97C /* 下載.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "下載.jpeg"; path = "../../../../下載.jpeg"; sourceTree = "<group>"; };
+		EB2D2AC026EB44D00060E97C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		EB2D2AC126EB44D00060E97C /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		EB2D2AC826EE3AEA0060E97C /* 2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2ViewController.swift; sourceTree = "<group>"; };
+		EB2D2ACC26EE3ECA0060E97C /* 1ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1ViewController1.swift; sourceTree = "<group>"; };
+		EB56585726EF444B00C3B2D7 /* PrintWhatDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintWhatDelegate.swift; sourceTree = "<group>"; };
+		EB56586026EF49C400C3B2D7 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		EB56586126EF49C400C3B2D7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,15 +88,16 @@
 				EB2D2A7426E3595C0060E97C /* SceneDelegate.swift */,
 				EB2D2A8A26E36B730060E97C /* MainViewController.swift */,
 				EB2D2A7826E3595C0060E97C /* Main.storyboard */,
+				EB56585A26EF44D800C3B2D7 /* Delegate_test */,
 				EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */,
-				EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */,
+				EB56585F26EF499300C3B2D7 /* CollectionViewCell */,
 				EB2D2AAD26E661550060E97C /* TableUIView */,
 				EB2D2A9626E49D2E0060E97C /* NibOwnLoadable.swift */,
 				EB2D2AAC26E660CF0060E97C /* MainView */,
 				EB2D2A7B26E3595D0060E97C /* Assets.xcassets */,
+				EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */,
 				EB2D2A7D26E3595D0060E97C /* LaunchScreen.storyboard */,
 				EB2D2A8026E3595D0060E97C /* Info.plist */,
-				EB2D2ABD26EB1B4C0060E97C /* 下載.jpeg */,
 			);
 			path = BookRent;
 			sourceTree = "<group>";
@@ -105,6 +118,27 @@
 				EB2D2AB126E6648A0060E97C /* TableUIView.swift */,
 			);
 			path = TableUIView;
+			sourceTree = "<group>";
+		};
+		EB56585A26EF44D800C3B2D7 /* Delegate_test */ = {
+			isa = PBXGroup;
+			children = (
+				EB56585726EF444B00C3B2D7 /* PrintWhatDelegate.swift */,
+				EB2D2ACC26EE3ECA0060E97C /* 1ViewController1.swift */,
+				EB2D2AC826EE3AEA0060E97C /* 2ViewController.swift */,
+			);
+			path = Delegate_test;
+			sourceTree = "<group>";
+		};
+		EB56585F26EF499300C3B2D7 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EB2D2AC026EB44D00060E97C /* CollectionViewCell.swift */,
+				EB2D2AC126EB44D00060E97C /* CollectionViewCell.xib */,
+				EB56586026EF49C400C3B2D7 /* PhotoCollectionViewCell.swift */,
+				EB56586126EF49C400C3B2D7 /* PhotoCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,9 +201,10 @@
 				EB2D2A7F26E3595D0060E97C /* LaunchScreen.storyboard in Resources */,
 				EB2D2A7C26E3595D0060E97C /* Assets.xcassets in Resources */,
 				EB2D2AA326E65CD10060E97C /* TableUIView.xib in Resources */,
-				EB2D2ABE26EB1B4C0060E97C /* 下載.jpeg in Resources */,
+				EB56586326EF49C400C3B2D7 /* PhotoCollectionViewCell.xib in Resources */,
 				EB2D2AB726E665340060E97C /* TableUIViewControllerTableViewController.xib in Resources */,
 				EB2D2A9026E36BA40060E97C /* MainView.xib in Resources */,
+				EB2D2AC326EB44D00060E97C /* CollectionViewCell.xib in Resources */,
 				EB2D2A7A26E3595C0060E97C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,11 +218,16 @@
 			files = (
 				EB2D2A7326E3595C0060E97C /* AppDelegate.swift in Sources */,
 				EB2D2AB226E6648A0060E97C /* TableUIView.swift in Sources */,
+				EB2D2ACD26EE3ECA0060E97C /* 1ViewController1.swift in Sources */,
+				EB2D2AC226EB44D00060E97C /* CollectionViewCell.swift in Sources */,
 				EB2D2A9726E49D2E0060E97C /* NibOwnLoadable.swift in Sources */,
+				EB56586226EF49C400C3B2D7 /* PhotoCollectionViewCell.swift in Sources */,
 				EB2D2A7526E3595C0060E97C /* SceneDelegate.swift in Sources */,
 				EB2D2AB626E665340060E97C /* TableUIViewControllerTableViewController.swift in Sources */,
 				EB2D2A9326E36C260060E97C /* MainView.swift in Sources */,
+				EB56585826EF444B00C3B2D7 /* PrintWhatDelegate.swift in Sources */,
 				EB2D2A8C26E36B730060E97C /* MainViewController.swift in Sources */,
+				EB2D2AC926EE3AEA0060E97C /* 2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,6 +58,8 @@ class MainView: UIView,NibOwnerLoadable {
     
     private func custominit(){
         loadNibContent()
+        textfield.text = txt
+        textfield.placeholder = placeHolder
     }
     
     

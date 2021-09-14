@@ -7,7 +7,10 @@
 
 import UIKit
 
-class TableUIViewControllerTableViewController: UITableViewController {
+class TableUIViewControllerTableViewController: UITableViewController{
+                                                /*UICollectionViewDelegate,UICollectionViewDataSource {*/
+    
+    
     
     var imagedata = ["01","02","03"]
     var booknamedata = ["原子習慣","超速學習","深夜食堂"]
@@ -18,13 +21,18 @@ class TableUIViewControllerTableViewController: UITableViewController {
     let nib = UINib(nibName: "TableUIView", bundle: nil)
     
     
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
         //tableView.register(UINib(nibName: "TableUIView", bundle: nil), forCellReuseIdentifier: "TTableUIView")
         
+        //self.tableView.addSubview(CollectionView)
+        
         tableView.register(nib, forCellReuseIdentifier: "TTTableUIView")
-
+            //tableView.delegate = self
+        //tableView.dataSource = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,6 +40,20 @@ class TableUIViewControllerTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    // MARK: - CollectionView
+    // 多少Count
+    /*
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    // set cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionView", for: indexPath) as! CollectionViewCell
+        return cell
+    }
+    */
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,17 +67,18 @@ class TableUIViewControllerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 207
+        return 286
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableUIView = tableView.dequeueReusableCell(withIdentifier: "TTTableUIView", for: indexPath) as! TableUIView
         
-        cell.image_1.image = UIImage(named: imagedata[indexPath.row])
+        //cell.image_1.image = UIImage(named: imagedata[indexPath.row])
         cell.bookname.text = booknamedata[indexPath.row]
         cell.author.text = authordata[indexPath.row]
         cell.owner.text = owners[indexPath.row]
         cell.count_day.text = lastdaydata[indexPath.row]
+        cell.backgroundColor = .init(red: 201, green: 148, blue: 115, alpha: 0)
 
         // Configure the cell...
 
