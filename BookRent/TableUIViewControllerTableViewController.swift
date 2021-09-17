@@ -8,7 +8,7 @@
 import UIKit
 
 class TableUIViewControllerTableViewController: UITableViewController{
-                                                /*UICollectionViewDelegate,UICollectionViewDataSource {*/
+                                                
     
     
     
@@ -85,7 +85,11 @@ class TableUIViewControllerTableViewController: UITableViewController{
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       print("yes")
+        performSegue(withIdentifier: "BookDetail", sender: nil)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -121,14 +125,27 @@ class TableUIViewControllerTableViewController: UITableViewController{
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue : UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "BookDetail"{
+            let controller = segue.destination as? BookDetailViewController
+            
+            
+            if let row = tableView.indexPathForSelectedRow?.row{
+                controller?.BDImage = UIImageView(image: UIImage(named: imagedata[row]))
+                controller?.BDImageString = imagedata[row]
+                controller?.BDBookName = booknamedata[row]
+                controller?.BDAuthor = authordata[row]
+                print("djsfkdjk\(controller?.BDImageString)")
+            }
+        }
+        
     }
-    */
     
 }

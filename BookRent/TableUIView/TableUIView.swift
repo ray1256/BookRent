@@ -11,7 +11,6 @@ class TableUIView: UITableViewCell,NibOwnerLoadable,UICollectionViewDelegate,UIC
     
     
     @IBOutlet weak var CollectionView_1: UICollectionView!
-    //@IBOutlet weak var image_1: UIImageView!
     @IBOutlet weak var bookname: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var owner: UILabel!

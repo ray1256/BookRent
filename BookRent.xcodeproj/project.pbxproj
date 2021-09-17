@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,14 +22,18 @@
 		EB2D2AB726E665340060E97C /* TableUIViewControllerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */; };
 		EB2D2AC226EB44D00060E97C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AC026EB44D00060E97C /* CollectionViewCell.swift */; };
 		EB2D2AC326EB44D00060E97C /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2AC126EB44D00060E97C /* CollectionViewCell.xib */; };
-		EB2D2AC926EE3AEA0060E97C /* 2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2AC826EE3AEA0060E97C /* 2ViewController.swift */; };
-		EB2D2ACD26EE3ECA0060E97C /* 1ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2ACC26EE3ECA0060E97C /* 1ViewController1.swift */; };
-		EB56585826EF444B00C3B2D7 /* PrintWhatDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56585726EF444B00C3B2D7 /* PrintWhatDelegate.swift */; };
 		EB56586226EF49C400C3B2D7 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56586026EF49C400C3B2D7 /* PhotoCollectionViewCell.swift */; };
 		EB56586326EF49C400C3B2D7 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56586126EF49C400C3B2D7 /* PhotoCollectionViewCell.xib */; };
+		EB56586A26F08A0800C3B2D7 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56586826F08A0800C3B2D7 /* BookDetailViewController.swift */; };
+		EB56586F26F098B200C3B2D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB56586E26F098B200C3B2D7 /* GoogleService-Info.plist */; };
+		EB57E88426F36CB0000849CD /* BookAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB57E88326F36CB0000849CD /* BookAddViewController.swift */; };
+		F55F0DD09A34A078539E5821 /* Pods_BookRent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BF0824626584B6B199EDFF /* Pods_BookRent.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B308E8E9C059D41A8AEC6DB /* Pods-BookRent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookRent.release.xcconfig"; path = "Target Support Files/Pods-BookRent/Pods-BookRent.release.xcconfig"; sourceTree = "<group>"; };
+		A8BF0824626584B6B199EDFF /* Pods_BookRent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookRent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50BB3BA6A7A2D534EE9061A /* Pods-BookRent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookRent.debug.xcconfig"; path = "Target Support Files/Pods-BookRent/Pods-BookRent.debug.xcconfig"; sourceTree = "<group>"; };
 		EB2D2A6F26E3595C0060E97C /* BookRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2D2A7226E3595C0060E97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2D2A7426E3595C0060E97C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,11 +51,11 @@
 		EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableUIViewControllerTableViewController.xib; sourceTree = "<group>"; };
 		EB2D2AC026EB44D00060E97C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		EB2D2AC126EB44D00060E97C /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
-		EB2D2AC826EE3AEA0060E97C /* 2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2ViewController.swift; sourceTree = "<group>"; };
-		EB2D2ACC26EE3ECA0060E97C /* 1ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1ViewController1.swift; sourceTree = "<group>"; };
-		EB56585726EF444B00C3B2D7 /* PrintWhatDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintWhatDelegate.swift; sourceTree = "<group>"; };
 		EB56586026EF49C400C3B2D7 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		EB56586126EF49C400C3B2D7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		EB56586826F08A0800C3B2D7 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		EB56586E26F098B200C3B2D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB57E88326F36CB0000849CD /* BookAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +63,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55F0DD09A34A078539E5821 /* Pods_BookRent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		763628A4DB5BE35A4DB021D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8BF0824626584B6B199EDFF /* Pods_BookRent.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A58A81F21708A754C3ABF398 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B50BB3BA6A7A2D534EE9061A /* Pods-BookRent.debug.xcconfig */,
+				9B308E8E9C059D41A8AEC6DB /* Pods-BookRent.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EB2D2A6626E3595C0060E97C = {
 			isa = PBXGroup;
 			children = (
 				EB2D2A7126E3595C0060E97C /* BookRent */,
 				EB2D2A7026E3595C0060E97C /* Products */,
+				A58A81F21708A754C3ABF398 /* Pods */,
+				763628A4DB5BE35A4DB021D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,7 +112,8 @@
 				EB2D2A7426E3595C0060E97C /* SceneDelegate.swift */,
 				EB2D2A8A26E36B730060E97C /* MainViewController.swift */,
 				EB2D2A7826E3595C0060E97C /* Main.storyboard */,
-				EB56585A26EF44D800C3B2D7 /* Delegate_test */,
+				EB57E88326F36CB0000849CD /* BookAddViewController.swift */,
+				EB56586826F08A0800C3B2D7 /* BookDetailViewController.swift */,
 				EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */,
 				EB56585F26EF499300C3B2D7 /* CollectionViewCell */,
 				EB2D2AAD26E661550060E97C /* TableUIView */,
@@ -98,6 +123,7 @@
 				EB2D2AB526E665340060E97C /* TableUIViewControllerTableViewController.xib */,
 				EB2D2A7D26E3595D0060E97C /* LaunchScreen.storyboard */,
 				EB2D2A8026E3595D0060E97C /* Info.plist */,
+				EB56586E26F098B200C3B2D7 /* GoogleService-Info.plist */,
 			);
 			path = BookRent;
 			sourceTree = "<group>";
@@ -120,16 +146,6 @@
 			path = TableUIView;
 			sourceTree = "<group>";
 		};
-		EB56585A26EF44D800C3B2D7 /* Delegate_test */ = {
-			isa = PBXGroup;
-			children = (
-				EB56585726EF444B00C3B2D7 /* PrintWhatDelegate.swift */,
-				EB2D2ACC26EE3ECA0060E97C /* 1ViewController1.swift */,
-				EB2D2AC826EE3AEA0060E97C /* 2ViewController.swift */,
-			);
-			path = Delegate_test;
-			sourceTree = "<group>";
-		};
 		EB56585F26EF499300C3B2D7 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB2D2A8326E3595D0060E97C /* Build configuration list for PBXNativeTarget "BookRent" */;
 			buildPhases = (
+				5E63F66D4136C677FA372ACD /* [CP] Check Pods Manifest.lock */,
 				EB2D2A6B26E3595C0060E97C /* Sources */,
 				EB2D2A6C26E3595C0060E97C /* Frameworks */,
 				EB2D2A6D26E3595C0060E97C /* Resources */,
+				5F37E8E9DEB8DD9A445E82AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +218,7 @@
 			files = (
 				EB2D2A7F26E3595D0060E97C /* LaunchScreen.storyboard in Resources */,
 				EB2D2A7C26E3595D0060E97C /* Assets.xcassets in Resources */,
+				EB56586F26F098B200C3B2D7 /* GoogleService-Info.plist in Resources */,
 				EB2D2AA326E65CD10060E97C /* TableUIView.xib in Resources */,
 				EB56586326EF49C400C3B2D7 /* PhotoCollectionViewCell.xib in Resources */,
 				EB2D2AB726E665340060E97C /* TableUIViewControllerTableViewController.xib in Resources */,
@@ -211,6 +230,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E63F66D4136C677FA372ACD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BookRent-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F37E8E9DEB8DD9A445E82AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookRent/Pods-BookRent-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookRent/Pods-BookRent-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookRent/Pods-BookRent-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB2D2A6B26E3595C0060E97C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -218,16 +279,15 @@
 			files = (
 				EB2D2A7326E3595C0060E97C /* AppDelegate.swift in Sources */,
 				EB2D2AB226E6648A0060E97C /* TableUIView.swift in Sources */,
-				EB2D2ACD26EE3ECA0060E97C /* 1ViewController1.swift in Sources */,
+				EB57E88426F36CB0000849CD /* BookAddViewController.swift in Sources */,
+				EB56586A26F08A0800C3B2D7 /* BookDetailViewController.swift in Sources */,
 				EB2D2AC226EB44D00060E97C /* CollectionViewCell.swift in Sources */,
 				EB2D2A9726E49D2E0060E97C /* NibOwnLoadable.swift in Sources */,
 				EB56586226EF49C400C3B2D7 /* PhotoCollectionViewCell.swift in Sources */,
 				EB2D2A7526E3595C0060E97C /* SceneDelegate.swift in Sources */,
 				EB2D2AB626E665340060E97C /* TableUIViewControllerTableViewController.swift in Sources */,
 				EB2D2A9326E36C260060E97C /* MainView.swift in Sources */,
-				EB56585826EF444B00C3B2D7 /* PrintWhatDelegate.swift in Sources */,
 				EB2D2A8C26E36B730060E97C /* MainViewController.swift in Sources */,
-				EB2D2AC926EE3AEA0060E97C /* 2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +431,7 @@
 		};
 		EB2D2A8426E3595D0060E97C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B50BB3BA6A7A2D534EE9061A /* Pods-BookRent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -390,6 +451,7 @@
 		};
 		EB2D2A8526E3595D0060E97C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B308E8E9C059D41A8AEC6DB /* Pods-BookRent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
