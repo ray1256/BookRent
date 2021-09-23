@@ -8,10 +8,12 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import GoogleBooksApiClient
 
 class BookAddViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
+    var ref:DatabaseReference?
     @IBOutlet weak var addimage: UIImageView!
     
     @IBOutlet weak var AddBookISBN: UITextField!
@@ -34,8 +36,23 @@ class BookAddViewController: UIViewController,UIImagePickerControllerDelegate,UI
         self.present(controller, animated: true, completion: nil)
     }
     
+    /*
+    
+    let session = URLSession.shared
+    let client = GoogleBooksApiClient(session: session)
+    
+    
+    let req = GoogleBooksApi.VolumeRequest.List(query: "Google")
+    let task: URLSessionDataTask = client.invoke(
+        req,
+        onSuccess: { volumes in NSLog("\(volumes)") },
+        onError: { error in NSLog("\(error)") }
+    )
+    task.resume()
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference(withPath: "Book")
         imagePicker.delegate = self
         
         
@@ -56,17 +73,13 @@ class BookAddViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @IBAction func addbutton(_ sender: Any) {
         
-        let ref = Database.database().reference()
+        let book1 = Book(booktitle: AddBookName.text!, bookauthors: AddBookAuthor.text!, bookISBN: AddBookISBN.text!)
+        self.uploadtoFirebase(values: book1)
         //let reff = Storage.storage().reference().child("\(AddBookName!.text).png")
         //guard let imageData = addimage?.image?.jpegData(compressionQuality: 0.9) else {return}
         
         //reff.putData(imageData,metadata: nil)
-        
-        
-        ref.child("BookName").childByAutoId().setValue(AddBookName.text)
-        ref.child("BookAuthor").childByAutoId().setValue(AddBookAuthor.text)
-        ref.child("BookISBN").childByAutoId().setValue(AddBookISBN.text)
-        ref.child("BookImage").childByAutoId().setValue(addimage.image)
+       
         
     }
     
@@ -90,5 +103,28 @@ class BookAddViewController: UIViewController,UIImagePickerControllerDelegate,UI
         // Pass the selected object to the new view controller.
     }
     */
+    
+   func uploadtoFirebase(values:Book){
+    
+    let bookItem = Book(booktitle: values.booktitle, bookauthors: values.bookauthors, bookISBN: values.bookISBN)
+    
+    let bookItemRef = self.ref!.child(values.booktitle.lowercased())
+    bookItemRef.setValue(bookItem.toDictionary(),withCompletionBlock:{ (error,ref) in
+        if error == nil {
+            let alertController = UIAlertController(title: "Upload Success", message: "You done", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+        }})
+    
+    /*
+    ref.child("BookName").childByAutoId().setValue(AddBookName.text)
+    ref.child("BookAuthor").childByAutoId().setValue(AddBookAuthor.text)
+    ref.child("BookISBN").childByAutoId().setValue(AddBookISBN.text)
+    ref.child("BookImage").childByAutoId().setValue(addimage.image)
+    */
+    self.dismiss(animated: true, completion: nil)
+    }
 
 }

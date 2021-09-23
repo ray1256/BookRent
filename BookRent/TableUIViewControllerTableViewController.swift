@@ -18,6 +18,8 @@ class TableUIViewControllerTableViewController: UITableViewController{
     var owners = ["acer","asus","apple"]
     var lastdaydata = ["3","5","6"]
     
+    
+    
     let nib = UINib(nibName: "TableUIView", bundle: nil)
     
     
