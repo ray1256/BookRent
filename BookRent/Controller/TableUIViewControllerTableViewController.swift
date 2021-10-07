@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+import FirebaseDatabase
 
 class TableUIViewControllerTableViewController: UITableViewController{
                                                 
@@ -20,16 +23,73 @@ class TableUIViewControllerTableViewController: UITableViewController{
     
     
     
+    var conBookData:[Book]! = []
+    var BookData:[Book]! = []
+    var loadingBook:[Book]! = []
+    
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
     let nib = UINib(nibName: "TableUIView", bundle: nil)
     
     
     
         
     override func viewDidLoad() {
+        
+        loadingloading()
+        
+        
+        
+        
+        let ref = Database.database().reference(withPath: "Book")
+        ref.queryOrdered(byChild: "booktitle").observe(.value,with: { [self](snapshot) in
+        // 使用self.loadingBook = [Book]() 取代 removeAll()就完成了
+        self.loadingBook = [Book]()
+        for item in snapshot.children{
+            let book = Book(snapshot: item as! DataSnapshot)
+            loadingBook!.append(book)
+            }
+            self.tableView.reloadData()
+            dismiss(animated: true, completion: nil)
+       })
+        
+        
+        
+        self.BookData = conBookData
+        let loading = LoadingViewController()
+        loading.modalPresentationStyle = .overCurrentContext
+        loading.modalTransitionStyle = .crossDissolve
+        
+        
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.addTarget(self, action: #selector(fetchResponse), for:  UIControl.Event.valueChanged)
         super.viewDidLoad()
         //tableView.register(UINib(nibName: "TableUIView", bundle: nil), forCellReuseIdentifier: "TTableUIView")
         
         //self.tableView.addSubview(CollectionView)
+        
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
         
         tableView.register(nib, forCellReuseIdentifier: "TTTableUIView")
             //tableView.delegate = self
@@ -41,6 +101,34 @@ class TableUIViewControllerTableViewController: UITableViewController{
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+   
+    
+    
+    // MARK: - func fetchResponse
+    
+    @objc func fetchResponse(){
+        
+        let ref = Database.database().reference(withPath: "Book")
+        ref.queryOrdered(byChild: "booktitle").observe(.value, with: {(snapshot) in
+            self.loadingBook = [Book]()
+            for item in snapshot.children{
+                let book = Book(snapshot: item as! DataSnapshot)
+                self.loadingBook.append(book)
+            }
+        })
+        
+        
+        if let refreshcontrol = self.refreshControl{
+            if refreshcontrol.isRefreshing{
+                tableView.reloadData()
+                refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
+    
+    
 
     // MARK: - CollectionView
     // 多少Count
@@ -65,33 +153,36 @@ class TableUIViewControllerTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return imagedata.count
+        
+        return loadingBook!.count
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 286
+        return 300
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableUIView = tableView.dequeueReusableCell(withIdentifier: "TTTableUIView", for: indexPath) as! TableUIView
         
         //cell.image_1.image = UIImage(named: imagedata[indexPath.row])
-        cell.bookname.text = booknamedata[indexPath.row]
-        cell.author.text = authordata[indexPath.row]
-        cell.owner.text = owners[indexPath.row]
-        cell.count_day.text = lastdaydata[indexPath.row]
+        
+        
+        cell.bookname.text = loadingBook[indexPath.row].booktitle
+        cell.author.text = loadingBook[indexPath.row].bookauthors
+        cell.owner.text = loadingBook[indexPath.row].booktitle
+        cell.count_day.text = String(indexPath.row)
         cell.backgroundColor = .init(red: 201, green: 148, blue: 115, alpha: 0)
-
-        // Configure the cell...
 
         return cell
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       print("yes")
         performSegue(withIdentifier: "BookDetail", sender: nil)
     }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -144,10 +235,21 @@ class TableUIViewControllerTableViewController: UITableViewController{
                 controller?.BDImageString = imagedata[row]
                 controller?.BDBookName = booknamedata[row]
                 controller?.BDAuthor = authordata[row]
-                print("djsfkdjk\(controller?.BDImageString)")
+                
             }
         }
         
     }
     
 }
+
+extension TableUIViewControllerTableViewController{
+    func loadingloading(){
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overCurrentContext
+        loadingVC.modalTransitionStyle = .crossDissolve
+        self.tabBarController?.present(loadingVC, animated: true, completion: nil)
+        
+    }
+}
+

@@ -46,6 +46,14 @@ class TableUIView: UITableViewCell,NibOwnerLoadable,UICollectionViewDelegate,UIC
         return collectionViewcell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        
+    }
+    
+   
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

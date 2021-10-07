@@ -8,11 +8,32 @@
 import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
+import Firebase
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var account: MainView!
     @IBOutlet weak var password: MainView!
+    
+    var ref:DatabaseReference!
+    var book:[Book]?
+    
+    
+    
+    
+    func getInfo(){
+        
+        ref = Database.database().reference().child("Book")
+        ref.queryOrdered(byChild: "booktitle").observe(.value, with: {(snapshot) in
+               var OnlineItem = [Book]()
+            for Item in snapshot.children{
+                let book = Book(snapshot: Item as! DataSnapshot)
+                OnlineItem.append(book)
+            }
+            self.book = OnlineItem
+            
+    })
+    }
     
     
     
@@ -83,24 +104,26 @@ class MainViewController: UIViewController {
                 self.performSegue(withIdentifier: "LogIning", sender: nil)
             }
         }
-        /*let loginButton = FBLoginButton()
-        loginButton.center = view.center
-        view.addSubview(loginButton)  
-        */
+        getInfo()
+        
         
     }
     
     
     
   
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LogIning"{
+            let destination = segue.destination as? TableUIViewControllerTableViewController
+            destination?.conBookData = book
+            
+            
+        }
     }
-    */
+    
 
 }

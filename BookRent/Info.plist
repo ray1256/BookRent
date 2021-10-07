@@ -70,5 +70,10 @@
 	<string>use</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>use</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<false/>
+	</dict>
 </dict>
 </plist>

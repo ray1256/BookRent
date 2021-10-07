@@ -31,7 +31,7 @@ class MainView: UIView,NibOwnerLoadable {
     
     
    
-    @IBOutlet weak var textfield: UITextField!
+    @IBInspectable weak var textfield: UITextField!
     
     
     
