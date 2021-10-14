@@ -7,10 +7,19 @@
 
 import UIKit
 
-class BookDetailViewController:UITableViewController{
+class BookDetailViewController:UITableViewController{//,UICollectionViewDelegate,UICollectionViewDataSource{
+    /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    */
     
     
     @IBOutlet weak var Bookimage: UIImageView!
+    
     @IBOutlet weak var BookDetailCollectionview: UICollectionView!
     @IBOutlet weak var BookDetailBookName: UILabel!
     @IBOutlet weak var BookDetailBookISBN: UILabel!
@@ -21,13 +30,14 @@ class BookDetailViewController:UITableViewController{
     @IBOutlet weak var BookDetailLastday: UILabel!
     
     var BDImage:UIImageView?
-    var BDImageString:String?
+    var BDImageString:[String]?
     var BDBookName: String?
     var BDISBN:String?
     var BDAuthor:String?
     var BDownerimage:UIImageView?
     var BDCompleIntro:String?
     var BDLastDay:String?
+    
     
     
    /* override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +47,7 @@ class BookDetailViewController:UITableViewController{
     
     func changeto(){
         //Bookimage = BDImage
-        Bookimage.image = UIImage(named: BDImageString!)
+        
         BookDetailAuthor.text = BDAuthor
         BookDetailBookName.text = BDBookName
     }
@@ -51,7 +61,22 @@ class BookDetailViewController:UITableViewController{
  */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         changeto()
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        layout.minimumLineSpacing = 5
+        layout.scrollDirection = .horizontal
+        layout.itemSize.width = view.frame.width
+        layout.itemSize.height = 305
+        
+        BookDetailCollectionview.collectionViewLayout = layout
+        //BookDetailCollectionview.delegate = self
+        //BookDetailCollectionview.dataSource = self
+        
+        
+        
         
         // Do any additional setup after loading the view.
     }

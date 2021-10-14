@@ -103,7 +103,7 @@
                         <constraint firstAttribute="width" constant="115" id="xWI-cG-DlX"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NNk-0m-9iC">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NNk-0m-9iC">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>

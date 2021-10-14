@@ -11,6 +11,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cate: UILabel!
     
     @IBOutlet weak var catemark: UIImageView!
+    
     override func awakeFromNib() {
         
         let layout = UICollectionViewFlowLayout()
@@ -27,7 +28,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
         
-        var delegate:TableUIViewControllerTableViewController?
+        
         
         //collectionView.delegate = delegate
         //collectionView.dataSource = delegate

@@ -77,6 +77,8 @@ class BarCodeViewController: UIViewController,AVCapturePhotoCaptureDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        
         checkPermission()
         setupCameraLiveView()
         self.navigationController?.isToolbarHidden = true
@@ -297,6 +299,21 @@ class BarCodeViewController: UIViewController,AVCapturePhotoCaptureDelegate{
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
+    
+    
+    override func viewWillLayoutSubviews() {
+        cameraPreviewLayer?.connection?.videoOrientation = .portrait
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .portrait
+    }
+    
+    override open var shouldAutorotate: Bool{
+        return false
+    }
+    
+    
     
     // MARK: - Navigation
 

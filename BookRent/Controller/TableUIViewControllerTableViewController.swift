@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import FirebaseDatabase
+import Alamofire
 
 class TableUIViewControllerTableViewController: UITableViewController{
                                                 
@@ -21,12 +22,11 @@ class TableUIViewControllerTableViewController: UITableViewController{
     var owners = ["acer","asus","apple"]
     var lastdaydata = ["3","5","6"]
     
+    let ref:DatabaseReference = Database.database().reference(withPath: "Book")
     
     
-    var conBookData:[Book]! = []
-    var BookData:[Book]! = []
-    var loadingBook:[Book]! = []
-    
+    public var loadingBook:[Book]! = []
+    var loadBook:[Book] = []
     
     
     
@@ -48,23 +48,44 @@ class TableUIViewControllerTableViewController: UITableViewController{
         loadingloading()
         
         
+        DispatchQueue.global(qos: .userInteractive).async{ [self] in
         
         
-        let ref = Database.database().reference(withPath: "Book")
+        
         ref.queryOrdered(byChild: "booktitle").observe(.value,with: { [self](snapshot) in
         // 使用self.loadingBook = [Book]() 取代 removeAll()就完成了
         self.loadingBook = [Book]()
         for item in snapshot.children{
             let book = Book(snapshot: item as! DataSnapshot)
             loadingBook!.append(book)
+            print("loadingBookImageDat",type(of:loadingBook.first?.bookimage))
             }
-            self.tableView.reloadData()
-            dismiss(animated: true, completion: nil)
+            fetchimage()
+            
+            
+            
+            
        })
+
+        }
+        
+        self.tableView.reloadData()
+        dismiss(animated: true, completion: nil)
+        
+        // MARK:- NetWorkController to fetch data
+        NetworkController.shared.fetchWord(ref: ref, completionHandler: {[weak self] (loadbook) in
+            guard let self = self else{return}
+            
+            if let loadBook = loadbook{
+                self.loadBook = loadBook
+            }
+        })
         
         
         
-        self.BookData = conBookData
+        
+        //
+        
         let loading = LoadingViewController()
         loading.modalPresentationStyle = .overCurrentContext
         loading.modalTransitionStyle = .crossDissolve
@@ -80,17 +101,6 @@ class TableUIViewControllerTableViewController: UITableViewController{
         
         //self.tableView.addSubview(CollectionView)
         
-        
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
         tableView.register(nib, forCellReuseIdentifier: "TTTableUIView")
             //tableView.delegate = self
         //tableView.dataSource = self
@@ -101,6 +111,54 @@ class TableUIViewControllerTableViewController: UITableViewController{
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    // MARK:- fetchimage
+    func fetchimage(){
+        DispatchQueue.global(qos:.userInitiated).async {
+        
+        do{
+            
+            var url = [URL]()
+            print("1loadingBookImageDat",self.loadingBook.first?.bookimage)
+            for i in self.loadingBook.first?.bookimage ?? []{
+                url.append(URL(string: i)!)
+                print("This url",i)
+                print("url",url)
+            }
+            
+            //let url = URL(string:(self.loadingBook.first?.bookimage?.first)!)
+            
+            let imageCache = NSCache<NSURL,UIImage>()
+            /*if let image = imageCache.object(forKey: url as! NSURL){
+               print("1")
+            }*/
+            print("im yet")
+            var im = [Data]()
+            for i in url{
+                let imData = try Data(contentsOf: i as URL,options: [])
+                im.append(imData)
+                print("imData",imData)
+            }
+            print("im",im)
+            print("im done")
+            
+            self.loadingBook.first?.bookimagedata = im
+            print("loaingBook.first.bookimageData",self.loadingBook.first?.bookimagedata)
+            print("inside loadingBook image")
+            
+            
+        
+            
+            
+        }catch{
+            print(error.localizedDescription)
+        }
+        
+    }
+        
+    }
+    
     
    
     
@@ -165,8 +223,12 @@ class TableUIViewControllerTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableUIView = tableView.dequeueReusableCell(withIdentifier: "TTTableUIView", for: indexPath) as! TableUIView
         
-        //cell.image_1.image = UIImage(named: imagedata[indexPath.row])
         
+        
+        //cell.image_1.image = UIImage(named: imagedata[indexPath.row])
+        //cell.imageData = loadingBook[indexPath.row].bookimagedata
+        
+        cell.update(imageData:(self.loadingBook.first?.bookimage)!)
         
         cell.bookname.text = loadingBook[indexPath.row].booktitle
         cell.author.text = loadingBook[indexPath.row].bookauthors
@@ -231,10 +293,11 @@ class TableUIViewControllerTableViewController: UITableViewController{
             
             
             if let row = tableView.indexPathForSelectedRow?.row{
-                controller?.BDImage = UIImageView(image: UIImage(named: imagedata[row]))
-                controller?.BDImageString = imagedata[row]
-                controller?.BDBookName = booknamedata[row]
-                controller?.BDAuthor = authordata[row]
+                //controller?.BDImageString = loadingBook[row].bookimage
+                controller?.BDISBN = loadingBook[row].bookISBN
+                controller?.BDBookName = loadingBook[row].booktitle
+                controller?.BDAuthor = loadingBook[row].bookauthors
+                controller?.BDImageString = loadBook[row].bookimage
                 
             }
         }
@@ -252,4 +315,6 @@ extension TableUIViewControllerTableViewController{
         
     }
 }
+
+
 

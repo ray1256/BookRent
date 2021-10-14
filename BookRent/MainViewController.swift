@@ -119,7 +119,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LogIning"{
             let destination = segue.destination as? TableUIViewControllerTableViewController
-            destination?.conBookData = book
+            //destination?.conBookData = book
             
             
         }

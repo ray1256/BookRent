@@ -20,7 +20,7 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     var barDecode:BarCodeViewController?
     var ImageData:Data?
     var imageref:DatabaseReference?
-    var uploadURL:String?
+    var uploadURL:[String]? = []
     
     
     
@@ -30,7 +30,6 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     
     @IBOutlet weak var AddBookName: UITextField!{
         didSet{
-            AddBookName.becomeFirstResponder()
             AddBookName.tag = 1
             AddBookName.delegate = self
         }
@@ -167,7 +166,7 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     
     @IBAction func addbutton(_ sender: Any) {
         
-        let book1 = Book(booktitle: AddBookName.text!, bookauthors: AddBookAuthor.text!, bookISBN: AddBookISBN.text!,bookimage:"")
+        let book1 = Book(booktitle: AddBookName.text!, bookauthors: AddBookAuthor.text!, bookISBN: AddBookISBN.text!,bookimage:[""])
         self.uploadtoFirebase(values: book1)
         //let reff = Storage.storage().reference().child("\(AddBookName!.text).png")
         //guard let imageData = addimage?.image?.jpegData(compressionQuality: 0.9) else {return}
@@ -196,44 +195,62 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
    func uploadtoFirebase(values:Book){
     
     
-    var bookItem = Book(booktitle: values.booktitle, bookauthors: values.bookauthors, bookISBN: values.bookISBN, bookimage: "")
+    
     
     
     let bookItemRef = self.ref!.child(values.booktitle.lowercased())
-    let storageImageRef = Storage.storage().reference().child("BookRentImage").child("\(values.booktitle).jpg")
+    let storageImageRef = Storage.storage().reference().child("BookRentImage").child((values.booktitle))
+    
+    
     
    
     if addimage.image != nil{
-        
-    let uploadTask = storageImageRef.putData(self.ImageData!, metadata: nil, completion: {(data,error) in
+        print("Do addimage")
+        let uploadTask = storageImageRef.child("\(values.booktitle).jpeg").putData(self.ImageData!, metadata: nil, completion: {(data,error) in
         if error != nil{
-            print(error!.localizedDescription)
+            print("失敗組",error!.localizedDescription)
 
             return
         }
         })
     
     // 新增一個Observe觀察是否成功
+        DispatchQueue.global(qos: .userInitiated).async {
     uploadTask.observe(.success, handler:{ (snapshot) in
-                        storageImageRef.downloadURL{(url,error)in
+        storageImageRef.child("\(values.booktitle).jpeg").downloadURL{(url,error)in
                             
                             if let error = error{
                                 print("失敗",error.localizedDescription)
+                                print("失敗2",error)
                             }else{
                                 if let imageFileURL = url?.absoluteString{
                                     print("xphoto:",imageFileURL)
+                                    self.uploadURL?.append(imageFileURL)
                                     
+                                    let bookItem = Book(booktitle: values.booktitle, bookauthors: values.bookauthors, bookISBN: values.bookISBN, bookimage: self.uploadURL)
+                                    
+                                    bookItemRef.setValue(bookItem.toDictionary(),withCompletionBlock:{ (error,ref) in
+                                    if error == nil {
+                                        let alertController = UIAlertController(title: "Upload Success", message: "You done", preferredStyle: .alert)
+                                        let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                        
+                                        alertController.addAction(alertAction)
+                                        self.present(alertController, animated: true, completion: nil)
+                                    }})
+                                    
+                                    
+                                    /*bookItemRef.setValue(bookItem.ImagetoDictionary(),withCompletionBlock: {(error,ref) in
+                                        if error == nil{
+                                            let UploadAlertController = UIAlertController(title: "Upload Image Success", message: "Congradulation", preferredStyle: .alert)
+                                            let UploadAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                            UploadAlertController.addAction(UploadAlertAction)
+                                            self.present(UploadAlertController, animated: true, completion: nil)
+                                        }
+                                    })*/
                                 }
                             }
                         }
-        bookItemRef.child(values.booktitle).setValue(bookItem.ImagetoDictionary(),withCompletionBlock: {(error,ref) in
-            if error == nil{
-                let UploadAlertController = UIAlertController(title: "Upload Image Success", message: "Congradulation", preferredStyle: .alert)
-                let UploadAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                UploadAlertController.addAction(UploadAlertAction)
-                self.present(UploadAlertController, animated: true, completion: nil)
-            }
-        })
+        
             
     })
     }
@@ -242,15 +259,8 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     
     
     
-        bookItem = Book(booktitle: values.booktitle, bookauthors: values.bookauthors, bookISBN: values.bookISBN, bookimage: self.uploadURL)
-        bookItemRef.setValue(bookItem.toDictionary(),withCompletionBlock:{ (error,ref) in
-        if error == nil {
-            let alertController = UIAlertController(title: "Upload Success", message: "You done", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            alertController.addAction(alertAction)
-            self.present(alertController, animated: true, completion: nil)
-        }})
+        
+    }
     
     /*
     ref.child("BookName").childByAutoId().setValue(AddBookName.text)
@@ -262,21 +272,39 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     }
     
     func infosetup(text:String){
-        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(String(AddBookISBN.text!))")!
-        
+        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(text)")!
+        DispatchQueue.global(qos: .userInitiated).async {
         AF.request(url).responseJSON(completionHandler: {(response) in
             switch response.result{
+            
             case .success(let data):
-                if let datas = data as? [String:Any]{
-                    for i in datas{
-                        print(i)
-                    }
+                print("2")
+                let decoder = JSONDecoder()
+                do{
+                    print("url",url)
+                    let decode_data = try decoder.decode(BookInfo.self, from: response.data!)
+                    print("1")
+                    self.AddBookAuthor.text = decode_data.items.first?.volumeInfo.authors.first
+                    self.AddBookName.text = decode_data.items.first?.volumeInfo.title
+                    print("decode_data",decode_data.items.first?.volumeInfo.imageLinks.thumbnail)
+                    var imageURL = decode_data.items.first?.volumeInfo.imageLinks.thumbnail
+                    print("imageURL",imageURL)
+                    let imageData = try Data(contentsOf: imageURL!)
+                    print("imageData",imageData)
+                    self.addimage.image = UIImage(data: imageData)
+                    //self.AddTextDescription.text = decode_data.items.first?.volumeInfo.
+                
+                }catch{
+                    print("Error",error.localizedDescription)
+                    print("Error",error)
                 }
+                
             default:
                 break
             }
             
         })
+        }
         
         
         
@@ -306,8 +334,36 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
 extension BookAddViewController: mailtextDelegate{
     func mailtxt(text: String) {
         AddBookISBN.text = text
-        infosetup(text)
+        infosetup(text:text)
     }
 }
 
+struct BookInfo:Codable {
+    let items:[BookNeed]
+}
+struct BookNeed:Codable {
+    let volumeInfo:BookDetail
+    //let searchInfo:Description
+}
 
+struct BookDetail:Codable {
+    let title:String
+    let authors:[String]
+    let imageLinks:imageLink
+    //let description:String
+}
+struct imageLink:Codable {
+    let thumbnail:URL
+}
+struct Description:Codable {
+    let textSnippet:String
+}
+
+struct authorsData:Codable{
+    let firstString:String
+    
+    init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        firstString = try container.decode(String.self)
+    }
+}
