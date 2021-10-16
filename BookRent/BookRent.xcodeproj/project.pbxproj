@@ -35,6 +35,8 @@
 		EB56586A26F08A0800C3B2D7 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56586826F08A0800C3B2D7 /* BookDetailViewController.swift */; };
 		EB57E88426F36CB0000849CD /* BookAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB57E88326F36CB0000849CD /* BookAddViewController.swift */; };
 		EB6A166326F4883A00FB4313 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6A166226F4883A00FB4313 /* SearchTableViewController.swift */; };
+		EB7F525C271871D200504863 /* NetworkController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F525B271871D200504863 /* NetworkController1.swift */; };
+		EB7F525E271AAB8C00504863 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F525D271AAB8C00504863 /* DetailCollectionViewCell.swift */; };
 		EBD4F3BD2711A4E2000F47E5 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4F3BC2711A4E2000F47E5 /* NetworkController.swift */; };
 		F55F0DD09A34A078539E5821 /* Pods_BookRent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BF0824626584B6B199EDFF /* Pods_BookRent.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +75,8 @@
 		EB56586826F08A0800C3B2D7 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		EB57E88326F36CB0000849CD /* BookAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAddViewController.swift; sourceTree = "<group>"; };
 		EB6A166226F4883A00FB4313 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		EB7F525B271871D200504863 /* NetworkController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController1.swift; sourceTree = "<group>"; };
+		EB7F525D271AAB8C00504863 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		EBD4F3BC2711A4E2000F47E5 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,9 +176,11 @@
 			children = (
 				EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */,
 				EB56586826F08A0800C3B2D7 /* BookDetailViewController.swift */,
+				EB7F525D271AAB8C00504863 /* DetailCollectionViewCell.swift */,
 				EB57E88326F36CB0000849CD /* BookAddViewController.swift */,
 				EB4CB1B926FC880200A592DD /* BarCodeViewController.swift */,
 				EB4CB1BB2700BC8500A592DD /* MemberTableViewController.swift */,
+				EB7F525B271871D200504863 /* NetworkController1.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,11 +339,13 @@
 				EB4CB1C62706EA9B00A592DD /* CalenderViewController.swift in Sources */,
 				EB2D2AB226E6648A0060E97C /* TableUIView.swift in Sources */,
 				EB57E88426F36CB0000849CD /* BookAddViewController.swift in Sources */,
+				EB7F525C271871D200504863 /* NetworkController1.swift in Sources */,
 				EB56586A26F08A0800C3B2D7 /* BookDetailViewController.swift in Sources */,
 				EB2D2AC226EB44D00060E97C /* CollectionViewCell.swift in Sources */,
 				EB4CB1C12706BC7600A592DD /* LoadingViewController.swift in Sources */,
 				EB2D2A9726E49D2E0060E97C /* NibOwnLoadable.swift in Sources */,
 				EB56586226EF49C400C3B2D7 /* PhotoCollectionViewCell.swift in Sources */,
+				EB7F525E271AAB8C00504863 /* DetailCollectionViewCell.swift in Sources */,
 				EB6A166326F4883A00FB4313 /* SearchTableViewController.swift in Sources */,
 				EB2D2A7526E3595C0060E97C /* SceneDelegate.swift in Sources */,
 				EB4CB1BC2700BC8500A592DD /* MemberTableViewController.swift in Sources */,

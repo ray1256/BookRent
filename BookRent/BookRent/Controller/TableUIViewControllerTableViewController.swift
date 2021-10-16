@@ -26,7 +26,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
     
     
     public var loadingBook:[Book]! = []
-    var loadBook:[Book] = []
+    var loadBook = [Book]()
     
     
     
@@ -40,7 +40,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
     
     let nib = UINib(nibName: "TableUIView", bundle: nil)
     
-    
+    let fetch = NetworkController1()
     
         
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
         
         
         
-        ref.queryOrdered(byChild: "booktitle").observe(.value,with: { [self](snapshot) in
+        /*ref.queryOrdered(byChild: "booktitle").observe(.value,with: { [self](snapshot) in
         // 使用self.loadingBook = [Book]() 取代 removeAll()就完成了
         self.loadingBook = [Book]()
         for item in snapshot.children{
@@ -62,14 +62,25 @@ class TableUIViewControllerTableViewController: UITableViewController{
             }
             fetchimage()
             
+        
+        
             
+       })*/
             
-            
-       })
+            fetch.fetchInfo(completion: {[weak self](loadBook) in
+                guard let self = self else{return}
+                
+                if let loadBook = loadBook {
+                    self.loadBook = loadBook
+                    DispatchQueue.main.async {
+                        tableView.reloadData()
+                    }
+                }
+            })
 
         }
         
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
         dismiss(animated: true, completion: nil)
         
         // MARK:- NetWorkController to fetch data
@@ -212,7 +223,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return loadingBook!.count
+        return loadBook.count
         
     }
     
@@ -228,11 +239,11 @@ class TableUIViewControllerTableViewController: UITableViewController{
         //cell.image_1.image = UIImage(named: imagedata[indexPath.row])
         //cell.imageData = loadingBook[indexPath.row].bookimagedata
         
-        cell.update(imageData:(self.loadingBook.first?.bookimage)!)
+        cell.update(imageData:(self.loadBook[indexPath.row].bookimage)!)
         
-        cell.bookname.text = loadingBook[indexPath.row].booktitle
-        cell.author.text = loadingBook[indexPath.row].bookauthors
-        cell.owner.text = loadingBook[indexPath.row].booktitle
+        cell.bookname.text = loadBook[indexPath.row].booktitle
+        cell.author.text = loadBook[indexPath.row].bookauthors
+        cell.owner.text = loadBook[indexPath.row].booktitle
         cell.count_day.text = String(indexPath.row)
         cell.backgroundColor = .init(red: 201, green: 148, blue: 115, alpha: 0)
 
@@ -294,9 +305,9 @@ class TableUIViewControllerTableViewController: UITableViewController{
             
             if let row = tableView.indexPathForSelectedRow?.row{
                 //controller?.BDImageString = loadingBook[row].bookimage
-                controller?.BDISBN = loadingBook[row].bookISBN
-                controller?.BDBookName = loadingBook[row].booktitle
-                controller?.BDAuthor = loadingBook[row].bookauthors
+                controller?.BDISBN = loadBook[row].bookISBN
+                controller?.BDBookName = loadBook[row].booktitle
+                controller?.BDAuthor = loadBook[row].bookauthors
                 controller?.BDImageString = loadBook[row].bookimage
                 
             }

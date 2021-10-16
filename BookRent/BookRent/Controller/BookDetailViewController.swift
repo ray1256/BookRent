@@ -7,15 +7,21 @@
 
 import UIKit
 
-class BookDetailViewController:UITableViewController{//,UICollectionViewDelegate,UICollectionViewDataSource{
-    /*func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+class BookDetailViewController:UITableViewController,UICollectionViewDelegate,UICollectionViewDataSource{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return BDImageData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let collectionviewReuse = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewReuse", for: indexPath) as! DetailCollectionViewCell
+        
+        collectionviewReuse.DetailCollectionviewImage.image = UIImage(data: (BDImageData[indexPath.row]))
+        
+        return collectionviewReuse
     }
-    */
+    
     
     
     @IBOutlet weak var Bookimage: UIImageView!
@@ -31,6 +37,7 @@ class BookDetailViewController:UITableViewController{//,UICollectionViewDelegate
     
     var BDImage:UIImageView?
     var BDImageString:[String]?
+    var BDImageData:[Data] = []
     var BDBookName: String?
     var BDISBN:String?
     var BDAuthor:String?
@@ -40,25 +47,53 @@ class BookDetailViewController:UITableViewController{//,UICollectionViewDelegate
     
     
     
-   /* override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    switch section{
+    case 0:
+        return 1
+    case 1:
+        return 3
+        
+    default:
         return 1
     }
- */
+    
+    return 1
+        
+   }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+ 
     
     func changeto(){
         //Bookimage = BDImage
         
         BookDetailAuthor.text = BDAuthor
         BookDetailBookName.text = BDBookName
+        convert()
     }
     
-   /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func convert(){
+        var BDimageArr = [Data]()
+        for i in BDImageString!{
+            do {
+            let BDImageString = URL(string: i)
+            let BDImageData = try Data(contentsOf: BDImageString!)
+            BDimageArr.append(BDImageData)
+            }catch{
+                print("ERROR Convert",error)
+            }
+        }
         
-    
-        return cell
+        self.BDImageData = BDimageArr
     }
+    
    
- */
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,8 +107,8 @@ class BookDetailViewController:UITableViewController{//,UICollectionViewDelegate
         layout.itemSize.height = 305
         
         BookDetailCollectionview.collectionViewLayout = layout
-        //BookDetailCollectionview.delegate = self
-        //BookDetailCollectionview.dataSource = self
+        BookDetailCollectionview.delegate = self
+        BookDetailCollectionview.dataSource = self
         
         
         

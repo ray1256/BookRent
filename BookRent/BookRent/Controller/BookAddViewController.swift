@@ -198,7 +198,7 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     
     
     
-    let bookItemRef = self.ref!.child(values.booktitle.lowercased())
+    /*let bookItemRef = self.ref!.child(values.booktitle.lowercased())
     let storageImageRef = Storage.storage().reference().child("BookRentImage").child((values.booktitle))
     
     
@@ -269,6 +269,12 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     ref.child("BookImage").childByAutoId().setValue(addimage.image)
     */
     self.dismiss(animated: true, completion: nil)
+    */
+    
+    // MARK:- SingleTon測試
+    let fetch = NetworkController1()
+    fetch.uploadImage(Info: values, loadImage: [addimage.image!])
+        
     }
     
     func infosetup(text:String){
