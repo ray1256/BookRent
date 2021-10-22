@@ -16,7 +16,7 @@
                 <navigationController id="FRc-Za-DP3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="AMf-yK-ZJu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xTs-gY-kvE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                     </navigationBar>
@@ -32,8 +32,8 @@
         <scene sceneID="2DF-yY-AzC">
             <objects>
                 <viewController id="hXQ-Gj-P8d" customClass="CalenderViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="57J-pb-Keg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                    <view key="view" contentMode="scaleToFill" id="57J-pb-Keg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxp-XW-Ldu" userLabel="Month">
@@ -237,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZQ-Is-EFQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-836.23188405797111" y="103.79464285714285"/>
+            <point key="canvasLocation" x="-1235" y="117"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -254,8 +254,8 @@
                                     <constraint firstAttribute="height" constant="212" id="qZ7-Cl-0my"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7D-T9-nKc" customClass="MainView" customModule="BookRent" customModuleProvider="target">
-                                <rect key="frame" x="56" y="400" width="302" height="54"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7D-T9-nKc" customClass="MainView" customModule="BookRent" customModuleProvider="target">
+                                <rect key="frame" x="76" y="401" width="262" height="54"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="fPE-wh-ejP"/>
@@ -264,8 +264,81 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Account"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8W-W8-8CV" customClass="MainView" customModule="BookRent" customModuleProvider="target">
-                                <rect key="frame" x="56" y="454" width="302" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dnr-49-DKt">
+                                <rect key="frame" x="129" y="600" width="142" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="QVJ-8P-k95"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="註冊">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2kS-ba-OKh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEz-zU-Rpr">
+                                <rect key="frame" x="99" y="686" width="203" height="36"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="FBLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yXD-tX-FHA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-ou-r6m">
+                                <rect key="frame" x="99" y="746" width="203" height="38"/>
+                                <color key="backgroundColor" red="1" green="0.45950479449999998" blue="0.20741379260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="GoogleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OZL-Zi-qTy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twr-0D-I8c">
+                                <rect key="frame" x="99" y="558" width="203" height="34"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h6P-3x-GwR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSO-LV-es4">
+                                <rect key="frame" x="176" y="639" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aKw-HK-Zu7"/>
+                                </constraints>
+                                <state key="normal" title="忘記密碼">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ForgetPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sZH-hx-b6r"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K8W-W8-8CV" customClass="MainView" customModule="BookRent" customModuleProvider="target">
+                                <rect key="frame" x="76" y="454" width="262" height="54"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="OCt-ze-rW0"/>
@@ -274,52 +347,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Password"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dnr-49-DKt">
-                                <rect key="frame" x="136" y="600" width="142" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="QVJ-8P-k95"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="Register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2kS-ba-OKh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEz-zU-Rpr">
-                                <rect key="frame" x="99" y="686" width="203" height="36"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="FBLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yXD-tX-FHA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-ou-r6m">
-                                <rect key="frame" x="99" y="746" width="203" height="38"/>
-                                <color key="backgroundColor" red="1" green="0.45950479449999998" blue="0.20741379260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="GoogleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OZL-Zi-qTy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twr-0D-I8c">
-                                <rect key="frame" x="99" y="558" width="203" height="34"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h6P-3x-GwR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dlV-Z8-X2X"/>
                         <color key="backgroundColor" red="0.64313725489999995" green="0.40784313729999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -332,6 +359,8 @@
                             <constraint firstItem="WSS-1S-fdN" firstAttribute="centerX" secondItem="7ZS-OB-oty" secondAttribute="centerX" id="DNq-ba-3UH"/>
                             <constraint firstItem="fEz-zU-Rpr" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="99" id="FyD-yj-KfZ"/>
                             <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="m7D-T9-nKc" secondAttribute="trailing" constant="56" id="M0c-mX-RXF"/>
+                            <constraint firstItem="lSO-LV-es4" firstAttribute="top" secondItem="Dnr-49-DKt" secondAttribute="bottom" constant="-5" id="Qen-r0-kLj"/>
+                            <constraint firstItem="lSO-LV-es4" firstAttribute="centerX" secondItem="7ZS-OB-oty" secondAttribute="centerX" id="SWE-7l-GfY"/>
                             <constraint firstItem="Dnr-49-DKt" firstAttribute="centerX" secondItem="K8W-W8-8CV" secondAttribute="centerX" id="UD2-8I-3DR"/>
                             <constraint firstItem="m7D-T9-nKc" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="56" id="XIs-AA-YUq"/>
                             <constraint firstItem="cfC-ou-r6m" firstAttribute="width" secondItem="fEz-zU-Rpr" secondAttribute="width" id="Xi6-Dt-AnW"/>
@@ -352,19 +381,19 @@
                     <connections>
                         <outlet property="account" destination="m7D-T9-nKc" id="fyk-Az-tAN"/>
                         <outlet property="password" destination="K8W-W8-8CV" id="DLP-r8-zd5"/>
-                        <segue destination="hg4-U0-0Hs" kind="show" identifier="LogIning" id="bBn-ll-ceB"/>
+                        <segue destination="hg4-U0-0Hs" kind="presentation" identifier="LogIning" modalPresentationStyle="fullScreen" id="bBn-ll-ceB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-59.420289855072468" y="103.79464285714285"/>
         </scene>
-        <!--Title-->
+        <!--SHARE-->
         <scene sceneID="oao-Wb-arx">
             <objects>
                 <tableViewController id="xmt-tZ-NSo" customClass="TableUIViewControllerTableViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="emP-0k-DcW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.64313725489999995" green="0.40784313729999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
@@ -383,7 +412,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="dWP-n2-7hD"/>
-                    <navigationItem key="navigationItem" title="Title" id="tRP-gd-ELt">
+                    <navigationItem key="navigationItem" title="SHARE" id="tRP-gd-ELt">
                         <barButtonItem key="rightBarButtonItem" image="plus" id="igx-eO-7Cg">
                             <connections>
                                 <segue destination="8A3-hS-dbb" kind="show" id="QD2-ml-HQc"/>
@@ -404,7 +433,7 @@
                 <navigationController id="Nf0-ys-rCH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="Km0-xm-iKU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ggi-wX-HWU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -440,7 +469,7 @@
             <objects>
                 <tableViewController id="yKt-Z0-Cy4" customClass="BookDetailViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nKm-xa-dW1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -731,7 +760,7 @@
             <objects>
                 <tableViewController id="a7H-4p-yI0" customClass="MemberTableViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DTM-Tv-sNU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -910,7 +939,7 @@
             <objects>
                 <tableViewController id="tqE-PM-cF9" customClass="SearchTableViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Cy-dl-SK6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -972,7 +1001,7 @@
             <objects>
                 <tableViewController id="8A3-hS-dbb" customClass="BookAddViewController" customModule="BookRent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8eL-Ce-1Dy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>

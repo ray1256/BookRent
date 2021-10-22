@@ -9,30 +9,26 @@ import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
 import Firebase
+import GoogleSignIn
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+          }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        return
+    }
+    
 
     @IBOutlet weak var account: MainView!
-    @IBOutlet weak var password: MainView!
-    
-    var ref:DatabaseReference!
-    var book:[Book]?
-    
-    
-    
-    
-    func getInfo(){
-        
-        ref = Database.database().reference().child("Book")
-        ref.queryOrdered(byChild: "booktitle").observe(.value, with: {(snapshot) in
-               var OnlineItem = [Book]()
-            for Item in snapshot.children{
-                let book = Book(snapshot: Item as! DataSnapshot)
-                OnlineItem.append(book)
-            }
-            self.book = OnlineItem
-            
-    })
+    @IBOutlet weak var password: MainView!{
+        didSet{
+            password.textfield.isSecureTextEntry = true
+        }
     }
     
     
@@ -42,7 +38,7 @@ class MainViewController: UIViewController {
         Auth.auth().signIn(withEmail: account.textfield.text!, password: password.textfield.text!, completion: {
             (user,error) in
             if error != nil{
-                let ErrorAlert = UIAlertController(title: "Error Alert", message: "Alert", preferredStyle: .alert)
+                let ErrorAlert = UIAlertController(title: "Error Alert", message: "InCorrect", preferredStyle: .alert)
                 let ErrorAction = UIAlertAction(title: "Error", style: .cancel, handler: nil)
                 
                 ErrorAlert.addAction(ErrorAction)
@@ -87,43 +83,79 @@ class MainViewController: UIViewController {
         
         
     }
-        /*@IBAction func FBLogin(_ sender: Any) {
-        
-       let FBLogin = FBSDKCoreKit()
-        FBLogin.log
+    @IBAction func FBLogin(_ sender: Any) {
         
     }
-    */
+    
+    
+    
     
     @IBAction func GoogleLogin(_ sender: Any) {
     }
+    
+    // MARK:- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        Auth.auth().addStateDidChangeListener{(auth,user) in
-            if user != nil {
-                self.performSegue(withIdentifier: "LogIning", sender: nil)
-            }
-        }
-        getInfo()
-        
-        
+        let loginButton = FBLoginButton()
+        loginButton.delegate = self
+        loginButton.frame.origin = CGPoint(x: 99, y: 686)
+        loginButton.frame.size = CGSize(width:203,height:36)
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        loginButton.layer.cornerRadius = 5
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
+        view.addSubview(loginButton)
     }
     
+    @objc func dismissKeyBoard(){
+        self.view.endEditing(true)
+    }
+    //MARK: - 忘記密碼
     
+    @IBAction func ForgetPassword(_ sender: Any) {
+        
+        let AlertController = UIAlertController(title: "請輸入Email", message:"", preferredStyle: .alert)
+        let Action = UIAlertAction(title: "OK", style: .default, handler: {(error) in
+           
+            let email = AlertController.textFields![0]
+            Auth.auth().sendPasswordReset(withEmail: email.text!, completion: {(error) in
+
+                if error != nil{
+                    let alcontroller = UIAlertController(title: "Error", message: "Incorrect Email", preferredStyle: .alert)
+                    let alaction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                    alcontroller.addAction(alaction)
+                    self.present(alcontroller, animated: true, completion: nil)
+                    print("Error",error?.localizedDescription)
+                }else{
+                    let alcontroller = UIAlertController(title: "Send Success", message: "Receive Your Email", preferredStyle: .alert)
+                    let alaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alcontroller.addAction(alaction)
+                    self.present(alcontroller, animated: true, completion: nil)
+                }
+            })
+        })
+        
+        
+        //告訴這個裡面有一個TextField要去呈現
+        AlertController.addTextField{email in email}
+        
+        
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        AlertController.addAction(cancel)
+        AlertController.addAction(Action)
+        present(AlertController, animated: true, completion: nil)
+        }
+
     
   
     
     // MARK: - Navigation
 
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LogIning"{
-            let destination = segue.destination as? TableUIViewControllerTableViewController
-            //destination?.conBookData = book
-            
-            
-        }
-    }
     
+    
+
 
 }

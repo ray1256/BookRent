@@ -14,4 +14,5 @@ target 'BookRent' do
   pod 'GoogleBooksApiClient'
   pod 'lottie-ios'
   pod 'Alamofire'
+  pod 'GoogleSignIn'
 end

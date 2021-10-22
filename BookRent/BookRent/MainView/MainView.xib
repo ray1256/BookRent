@@ -14,7 +14,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="303" height="54"/>
+            <rect key="frame" x="0.0" y="0.0" width="263" height="54"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="2YY-2U-Jfy">
@@ -27,7 +27,7 @@
             <viewLayoutGuide key="safeArea" id="peP-ns-Xp4"/>
             <color key="backgroundColor" red="0.74117647060000003" green="0.5568627451" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-103.62318840579711" y="229.01785714285714"/>
+            <point key="canvasLocation" x="-132.60869565217394" y="229.01785714285714"/>
         </view>
     </objects>
 </document>
