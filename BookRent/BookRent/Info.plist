@@ -24,15 +24,23 @@
 				<string>fb590867228603284</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1040286833971-tgj87a8e86gdtfodb0t7tu56dt1fl269</string>
+			</array>
+		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 	<key>FacebookAppID</key>
 	<string>590867228603284</string>
 	<key>FacebookClientToken</key>
 	<string>962dc650dfe918f5387213f65b4d9000</string>
 	<key>FacebookDisplayName</key>
 	<string>ookRent</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

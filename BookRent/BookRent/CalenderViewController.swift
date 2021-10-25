@@ -46,7 +46,12 @@ class CalenderViewController: UIViewController,UICollectionViewDelegate,UICollec
             CurrentYear -= 1
         }
         setup()
+        
         cal.reloadData()
+        for i in 0...29{
+            let selectItem = cal.cellForItem(at: [0,i])
+            selectItem!.backgroundColor = .clear
+        }
         
         
     }
@@ -180,6 +185,7 @@ class CalenderViewController: UIViewController,UICollectionViewDelegate,UICollec
                         selectItem = collectionView.cellForItem(at: [0,i])!
                         selectItem.backgroundColor = .clear
                     }
+                    bigtap = tap
                     countDay.text = String(day)
                     count = 1
                 }

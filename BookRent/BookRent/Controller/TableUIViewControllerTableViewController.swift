@@ -44,11 +44,13 @@ class TableUIViewControllerTableViewController: UITableViewController{
     
         
     override func viewDidLoad() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.loadingloading()
+        }
         
-        loadingloading()
         
         
-        DispatchQueue.global(qos: .userInteractive).async{ [self] in
+       // DispatchQueue.global(qos: .userInteractive).async{ [self] in
         
         
         
@@ -66,32 +68,35 @@ class TableUIViewControllerTableViewController: UITableViewController{
         
             
        })*/
-            
-            fetch.fetchInfo(completion: {[weak self](loadBook) in
+        // MARK: - NetworkController1 to fetch data
+            NetworkController1.shared.fetchInfo(ref:ref,completion: {[weak self](loadBook) in
                 guard let self = self else{return}
                 
                 if let loadBook = loadBook {
                     self.loadBook = loadBook
                     DispatchQueue.main.async {
-                        tableView.reloadData()
+                        print("Loadinging",loadBook)
+                        self.tableView.reloadData()
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             })
-
-        }
+            
+        //}
         
         //self.tableView.reloadData()
-        dismiss(animated: true, completion: nil)
+        
         
         // MARK:- NetWorkController to fetch data
-        NetworkController.shared.fetchWord(ref: ref, completionHandler: {[weak self] (loadbook) in
+        /*NetworkController.shared.fetchWord(ref: ref, completionHandler: {[weak self] (loadbook) in
             guard let self = self else{return}
             
             if let loadBook = loadbook{
                 self.loadBook = loadBook
+                print("loadinging",loadBook)
             }
         })
-        
+        */
         
         
         
@@ -319,12 +324,13 @@ class TableUIViewControllerTableViewController: UITableViewController{
 
 extension TableUIViewControllerTableViewController{
     func loadingloading(){
-        let loadingVC = LoadingViewController()
-        loadingVC.modalPresentationStyle = .overCurrentContext
-        loadingVC.modalTransitionStyle = .crossDissolve
-        self.tabBarController?.present(loadingVC, animated: true, completion: nil)
         
+            let loadingVC = LoadingViewController()
+            loadingVC.modalPresentationStyle = .overCurrentContext
+            loadingVC.modalTransitionStyle = .crossDissolve
+            self.tabBarController?.present(loadingVC, animated: true, completion: nil)
     }
+    
 }
 
 

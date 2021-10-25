@@ -20,7 +20,7 @@ class LoadingViewController: UIViewController{
         super.viewDidLoad()
         
         
-        /*let animationView = AnimationView(name: "73734-logo-anmation")
+        let animationView = AnimationView(name: "73734-logo-anmation")
         animationView.frame = CGRect(x: 0, y: 0 ,width: 300, height: 200)
         animationView.center = view.center
         animationView.loopMode = .loop
@@ -28,7 +28,7 @@ class LoadingViewController: UIViewController{
         self.view.addSubview(animationView)
         animationView.play()
         view.backgroundColor = UIColor.init(white: 5, alpha: 0.6)
-        */
+        
         // Do any additional setup after loading the view.
     }
     

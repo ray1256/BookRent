@@ -88,9 +88,38 @@ class MainViewController: UIViewController, LoginButtonDelegate {
     }
     
     
+    @IBOutlet weak var forgetpasswords: UIButton!
     
     
-    @IBAction func GoogleLogin(_ sender: Any) {
+    @objc func GoogleLogin() {
+        
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+
+          if let error = error {
+            // ...
+            return
+          }
+
+          guard
+            let authentication = user?.authentication,
+            let idToken = authentication.idToken
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: authentication.accessToken)
+            if user != nil{
+                performSegue(withIdentifier: "LogIning", sender: nil)
+            }
+          // ...
+        }
     }
     
     // MARK:- ViewDidLoad
@@ -98,13 +127,38 @@ class MainViewController: UIViewController, LoginButtonDelegate {
         super.viewDidLoad()
         let loginButton = FBLoginButton()
         loginButton.delegate = self
-        loginButton.frame.origin = CGPoint(x: 99, y: 686)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+       
         loginButton.frame.size = CGSize(width:203,height:36)
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         loginButton.layer.cornerRadius = 5
+        
+        let GiDSignInButton = GIDSignInButton()
+        GiDSignInButton.contentHorizontalAlignment = .left
+        GiDSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        //GiDSignInButton.frame.origin = CGPoint(x: 95, y: 656)
+        GiDSignInButton.frame.size = CGSize(width: 210, height: 36)
+        GiDSignInButton.layer.cornerRadius = 10
+        GiDSignInButton.contentHorizontalAlignment = .center
+        GiDSignInButton.addTarget(self, action:#selector(GoogleLogin), for: .touchDown)
+        
+        view.addSubview(loginButton)
+        NSLayoutConstraint(item: loginButton, attribute: .top, relatedBy: .equal, toItem: forgetpasswords, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
+        NSLayoutConstraint(item: loginButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 0, constant: 203).isActive = true
+        NSLayoutConstraint(item: loginButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: loginButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 0, constant: 38).isActive = true
+        
+        
+        view.addSubview(GiDSignInButton)
+      
+        NSLayoutConstraint(item: GiDSignInButton, attribute: .top, relatedBy: .equal, toItem: forgetpasswords, attribute: .bottom, multiplier: 1, constant: 50).isActive = true
+        NSLayoutConstraint(item: GiDSignInButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: GiDSignInButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 210).isActive = true
+        NSLayoutConstraint(item: GiDSignInButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 0, constant: 38).isActive = true
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
         self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
-        view.addSubview(loginButton)
+        
+        
     }
     
     @objc func dismissKeyBoard(){
@@ -152,7 +206,11 @@ class MainViewController: UIViewController, LoginButtonDelegate {
   
     
     // MARK: - Navigation
-
+    /*
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        
+    }
+    */
 
     
     

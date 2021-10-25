@@ -14,7 +14,7 @@ import FirebaseStorage
 
 class NetworkController1{
     
-    static let shared = NetworkController()
+    static let shared = NetworkController1()
     
     let  ref = Database.database().reference(withPath: "BookRent")
     var storage = Storage.storage().reference().child("BookRentImage")
@@ -22,7 +22,7 @@ class NetworkController1{
     var book = [Book]()
     var ImageURLArray = [String]()
     
-    func fetchInfo(completion:@escaping([Book]?) -> ()){
+    func fetchInfo(ref:DatabaseReference,completion:@escaping([Book]?) -> ()){
         ref.queryOrdered(byChild: "booktitle").observe(.value, with: {(snapshot) in
             var OnlineItem = [Book]()
             for item in snapshot.children{

@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -277,41 +276,12 @@
                                     <action selector="Register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2kS-ba-OKh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEz-zU-Rpr">
-                                <rect key="frame" x="99" y="686" width="203" height="36"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="FBLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yXD-tX-FHA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-ou-r6m">
-                                <rect key="frame" x="99" y="746" width="203" height="38"/>
-                                <color key="backgroundColor" red="1" green="0.45950479449999998" blue="0.20741379260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="GoogleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OZL-Zi-qTy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twr-0D-I8c">
-                                <rect key="frame" x="99" y="558" width="203" height="34"/>
+                                <rect key="frame" x="105.5" y="558" width="203" height="34"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="203" id="Q1M-lG-slh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -351,35 +321,28 @@
                         <viewLayoutGuide key="safeArea" id="dlV-Z8-X2X"/>
                         <color key="backgroundColor" red="0.64313725489999995" green="0.40784313729999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="Twr-0D-I8c" secondAttribute="trailing" constant="112" id="6La-Jb-0ww"/>
+                            <constraint firstItem="Twr-0D-I8c" firstAttribute="centerX" secondItem="7ZS-OB-oty" secondAttribute="centerX" id="4hs-YD-Ul6"/>
                             <constraint firstItem="WSS-1S-fdN" firstAttribute="top" secondItem="dlV-Z8-X2X" secondAttribute="top" constant="68" id="6Zm-Sq-yuX"/>
-                            <constraint firstItem="cfC-ou-r6m" firstAttribute="height" secondItem="fEz-zU-Rpr" secondAttribute="height" multiplier="1.05556" id="7cN-do-k4h"/>
-                            <constraint firstItem="Twr-0D-I8c" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="99" id="CBE-Yf-gm1"/>
                             <constraint firstItem="dlV-Z8-X2X" firstAttribute="bottom" secondItem="K8W-W8-8CV" secondAttribute="bottom" constant="354" id="DMy-A8-j5C"/>
                             <constraint firstItem="WSS-1S-fdN" firstAttribute="centerX" secondItem="7ZS-OB-oty" secondAttribute="centerX" id="DNq-ba-3UH"/>
-                            <constraint firstItem="fEz-zU-Rpr" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="99" id="FyD-yj-KfZ"/>
                             <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="m7D-T9-nKc" secondAttribute="trailing" constant="56" id="M0c-mX-RXF"/>
                             <constraint firstItem="lSO-LV-es4" firstAttribute="top" secondItem="Dnr-49-DKt" secondAttribute="bottom" constant="-5" id="Qen-r0-kLj"/>
                             <constraint firstItem="lSO-LV-es4" firstAttribute="centerX" secondItem="7ZS-OB-oty" secondAttribute="centerX" id="SWE-7l-GfY"/>
                             <constraint firstItem="Dnr-49-DKt" firstAttribute="centerX" secondItem="K8W-W8-8CV" secondAttribute="centerX" id="UD2-8I-3DR"/>
                             <constraint firstItem="m7D-T9-nKc" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="56" id="XIs-AA-YUq"/>
-                            <constraint firstItem="cfC-ou-r6m" firstAttribute="width" secondItem="fEz-zU-Rpr" secondAttribute="width" id="Xi6-Dt-AnW"/>
                             <constraint firstItem="m7D-T9-nKc" firstAttribute="top" secondItem="WSS-1S-fdN" secondAttribute="bottom" constant="76" id="YoP-Mk-UAV"/>
                             <constraint firstItem="Twr-0D-I8c" firstAttribute="top" secondItem="K8W-W8-8CV" secondAttribute="bottom" constant="50" id="aFA-19-T10"/>
                             <constraint firstItem="K8W-W8-8CV" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="56" id="cmy-8g-i8c"/>
                             <constraint firstItem="Dnr-49-DKt" firstAttribute="top" secondItem="Twr-0D-I8c" secondAttribute="bottom" constant="8" symbolic="YES" id="d4L-5A-ebQ"/>
-                            <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="cfC-ou-r6m" secondAttribute="trailing" constant="112" id="dRv-Wf-4dj"/>
-                            <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="fEz-zU-Rpr" secondAttribute="trailing" constant="112" id="e3J-kk-CDH"/>
                             <constraint firstItem="m7D-T9-nKc" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="56" id="g2f-0O-pNs"/>
                             <constraint firstItem="K8W-W8-8CV" firstAttribute="top" secondItem="m7D-T9-nKc" secondAttribute="bottom" id="kGg-g4-976"/>
                             <constraint firstItem="Dnr-49-DKt" firstAttribute="leading" secondItem="dlV-Z8-X2X" secondAttribute="leading" constant="136" id="rt5-bO-UTB"/>
                             <constraint firstItem="dlV-Z8-X2X" firstAttribute="trailing" secondItem="K8W-W8-8CV" secondAttribute="trailing" constant="56" id="sTz-T0-QXB"/>
-                            <constraint firstItem="fEz-zU-Rpr" firstAttribute="top" secondItem="Dnr-49-DKt" secondAttribute="bottom" constant="42" id="uv4-Zo-qFa"/>
-                            <constraint firstItem="cfC-ou-r6m" firstAttribute="top" secondItem="fEz-zU-Rpr" secondAttribute="bottom" constant="24" id="vRJ-93-trW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="account" destination="m7D-T9-nKc" id="fyk-Az-tAN"/>
+                        <outlet property="forgetpasswords" destination="lSO-LV-es4" id="mNA-Hr-h4d"/>
                         <outlet property="password" destination="K8W-W8-8CV" id="DLP-r8-zd5"/>
                         <segue destination="hg4-U0-0Hs" kind="presentation" identifier="LogIning" modalPresentationStyle="fullScreen" id="bBn-ll-ceB"/>
                     </connections>
@@ -1252,9 +1215,6 @@
         <image name="search" width="24" height="24"/>
         <image name="wave_arrow left" width="24" height="24"/>
         <image name="wave_arrow right" width="24" height="24"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
