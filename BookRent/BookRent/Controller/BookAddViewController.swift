@@ -145,6 +145,7 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
         self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
         self.AddBookISBN.text = newISBN
+        registerforkeyboardNotification()
         
     }
     
@@ -152,6 +153,38 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
             self.view.endEditing(true)
     }
     
+    
+    // MARK: - keyboard Set up
+    func registerforkeyboardNotification(){
+        
+        //          預設的NotificationCenter    觀察者｜觀察者用來通知的方法｜通知名稱｜觀察物件
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_ :)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHiden(_ :)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    
+    @objc func keyboardWasShown(_ notification:NSNotification){
+        guard let info = notification.userInfo,let keyboardFrameValue = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        else{return}
+        
+        let keyboardFrame = keyboardFrameValue.cgRectValue
+        let keyboardSize = keyboardFrame.size
+        
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+        tableView.contentInset = contentInsets
+        // 讓側邊的Scroll可以跟我的資料一起滑動
+        tableView.scrollIndicatorInsets = contentInsets
+        
+        
+    }
+    
+    @objc func keyboardWillBeHiden(_ notification:NSNotification){
+        
+        let contentInsets = UIEdgeInsets.zero
+        tableView.contentInset = contentInsets
+        tableView.scrollIndicatorInsets = contentInsets
+        
+    }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
