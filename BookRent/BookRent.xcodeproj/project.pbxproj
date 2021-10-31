@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB083FB12727D69F0091DA45 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB083FB02727D69F0091DA45 /* Member.swift */; };
 		EB2D2A7326E3595C0060E97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2A7226E3595C0060E97C /* AppDelegate.swift */; };
 		EB2D2A7526E3595C0060E97C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D2A7426E3595C0060E97C /* SceneDelegate.swift */; };
 		EB2D2A7A26E3595C0060E97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2D2A7826E3595C0060E97C /* Main.storyboard */; };
@@ -26,7 +27,6 @@
 		EB4CB1B726FBE3A000A592DD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CB1B626FBE3A000A592DD /* SearchTableViewCell.swift */; };
 		EB4CB1BA26FC880300A592DD /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CB1B926FC880200A592DD /* BarCodeViewController.swift */; };
 		EB4CB1BC2700BC8500A592DD /* MemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CB1BB2700BC8500A592DD /* MemberTableViewController.swift */; };
-		EB4CB1BE2705DC6D00A592DD /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CB1BD2705DC6800A592DD /* Information.swift */; };
 		EB4CB1C12706BC7600A592DD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CB1BF2706BC7600A592DD /* LoadingViewController.swift */; };
 		EB4CB1C42706CB1100A592DD /* 73734-logo-anmation.json in Resources */ = {isa = PBXBuildFile; fileRef = EB4CB1C32706CB1100A592DD /* 73734-logo-anmation.json */; };
 		EB4CB1C62706EA9B00A592DD /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CB1C52706EA9B00A592DD /* CalenderViewController.swift */; };
@@ -45,6 +45,7 @@
 		9B308E8E9C059D41A8AEC6DB /* Pods-BookRent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookRent.release.xcconfig"; path = "Target Support Files/Pods-BookRent/Pods-BookRent.release.xcconfig"; sourceTree = "<group>"; };
 		A8BF0824626584B6B199EDFF /* Pods_BookRent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookRent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50BB3BA6A7A2D534EE9061A /* Pods-BookRent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookRent.debug.xcconfig"; path = "Target Support Files/Pods-BookRent/Pods-BookRent.debug.xcconfig"; sourceTree = "<group>"; };
+		EB083FB02727D69F0091DA45 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		EB2D2A6F26E3595C0060E97C /* BookRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2D2A7226E3595C0060E97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2D2A7426E3595C0060E97C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		EB4CB1B626FBE3A000A592DD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		EB4CB1B926FC880200A592DD /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		EB4CB1BB2700BC8500A592DD /* MemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewController.swift; sourceTree = "<group>"; };
-		EB4CB1BD2705DC6800A592DD /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		EB4CB1BF2706BC7600A592DD /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		EB4CB1C32706CB1100A592DD /* 73734-logo-anmation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "73734-logo-anmation.json"; path = "../../../../73734-logo-anmation.json"; sourceTree = "<group>"; };
 		EB4CB1C52706EA9B00A592DD /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +140,6 @@
 				EB4CB1CA2706EB4400A592DD /* DataStructure */,
 				EB4CB1C72706EAB600A592DD /* Controller */,
 				EB6A166226F4883A00FB4313 /* SearchTableViewController.swift */,
-				EB2D2A8A26E36B730060E97C /* MainViewController.swift */,
 				EB3512C226FB686A0002055C /* GoogleService-Info.plist */,
 				EB56585F26EF499300C3B2D7 /* CollectionViewCell */,
 				EB2D2AAD26E661550060E97C /* TableUIView */,
@@ -174,6 +173,7 @@
 		EB4CB1C72706EAB600A592DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EB2D2A8A26E36B730060E97C /* MainViewController.swift */,
 				EB2D2AB426E665340060E97C /* TableUIViewControllerTableViewController.swift */,
 				EB56586826F08A0800C3B2D7 /* BookDetailViewController.swift */,
 				EB7F525D271AAB8C00504863 /* DetailCollectionViewCell.swift */,
@@ -196,8 +196,8 @@
 		EB4CB1CA2706EB4400A592DD /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
-				EB4CB1BD2705DC6800A592DD /* Information.swift */,
 				EB4CB1B426FB71B900A592DD /* Book.swift */,
+				EB083FB02727D69F0091DA45 /* Member.swift */,
 				EBD4F3BC2711A4E2000F47E5 /* NetworkController.swift */,
 			);
 			path = DataStructure;
@@ -348,12 +348,12 @@
 				EB7F525E271AAB8C00504863 /* DetailCollectionViewCell.swift in Sources */,
 				EB6A166326F4883A00FB4313 /* SearchTableViewController.swift in Sources */,
 				EB2D2A7526E3595C0060E97C /* SceneDelegate.swift in Sources */,
+				EB083FB12727D69F0091DA45 /* Member.swift in Sources */,
 				EB4CB1BC2700BC8500A592DD /* MemberTableViewController.swift in Sources */,
 				EB4CB1BA26FC880300A592DD /* BarCodeViewController.swift in Sources */,
 				EB2D2AB626E665340060E97C /* TableUIViewControllerTableViewController.swift in Sources */,
 				EB2D2A9326E36C260060E97C /* MainView.swift in Sources */,
 				EB4CB1B526FB71B900A592DD /* Book.swift in Sources */,
-				EB4CB1BE2705DC6D00A592DD /* Information.swift in Sources */,
 				EB2D2A8C26E36B730060E97C /* MainViewController.swift in Sources */,
 				EB4CB1B726FBE3A000A592DD /* SearchTableViewCell.swift in Sources */,
 			);

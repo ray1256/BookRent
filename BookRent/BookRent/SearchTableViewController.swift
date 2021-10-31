@@ -26,7 +26,7 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating{
     
     func configDatabase(){
         
-        ref = Database.database().reference(withPath: "Book")
+        ref = Database.database().reference(withPath: "BookRent")
         ref.queryOrdered(byChild: "booktitle").observe(.value, with: {(snapshot) in
             var OnlineItem = [Book]()
             for Items in snapshot.children{

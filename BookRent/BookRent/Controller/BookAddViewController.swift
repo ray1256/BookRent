@@ -20,21 +20,34 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     var barDecode:BarCodeViewController?
     var ImageData:Data?
     var imageref:DatabaseReference?
+    
     var uploadURL:[String]? = []
     
+    var UploadDate:String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter.string(from: Date())
+    }
+    var owner:String? = "Nancy"
+    
+    
+    enum rentStatus:Int{
+        case Rented = 1
+        case Available = 0
+
+    }
     
     
     
+    // MARK: - IBOulet
     
     @IBOutlet weak var addimage: UIImageView!
-    
     @IBOutlet weak var AddBookName: UITextField!{
         didSet{
             AddBookName.tag = 1
             AddBookName.delegate = self
         }
     }
-    
     @IBOutlet weak var AddBookISBN: UITextField!{
         didSet{
             AddBookISBN.tag = 2
@@ -56,6 +69,7 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
         }
     }
     
+    @IBOutlet weak var RentDay: UITextField!
     @IBOutlet weak var AddTextDescription: UITextView!
     
     @IBOutlet weak var AddTextPS: UITextView!
@@ -67,19 +81,16 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
         
     }
     
+    // MARK: - 按下Return換到下一個textfield
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag+1){
             textField.resignFirstResponder()
             nextTextField.becomeFirstResponder()
         }
-        
         return true
     }
     
-    
-    
-    
-    
+    // MARK: - 新增圖片按鈕
     @IBAction func addimage(_ sender: UIGestureRecognizer) {
         
         let controller = UIAlertController(title: "選取上傳方式", message: nil, preferredStyle: .alert)
@@ -101,13 +112,8 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     
    
     /*
-     
-     
-    
     let session = URLSession.shared
     let client = GoogleBooksApiClient(session: session)
-    
-    
     let req = GoogleBooksApi.VolumeRequest.List(query: "Google")
     let task: URLSessionDataTask = client.invoke(
         req,
@@ -117,22 +123,19 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     task.resume()
     */
     
-    
+    // MARK: - TableView SetUp
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
     }
     
-    
-    
-   
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
    
     
-    
+    // MARK: - ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "Book")
@@ -186,7 +189,7 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
         
     }
     
-    
+    // MARK: - ImagePicker
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
                     self.addimage.image = image
@@ -196,22 +199,6 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
                 picker.dismiss(animated: true)
     }
     
-    
-    @IBAction func addbutton(_ sender: Any) {
-        
-        let book1 = Book(booktitle: AddBookName.text!, bookauthors: AddBookAuthor.text!, bookISBN: AddBookISBN.text!,bookimage:[""])
-        self.uploadtoFirebase(values: book1)
-        //let reff = Storage.storage().reference().child("\(AddBookName!.text).png")
-        //guard let imageData = addimage?.image?.jpegData(compressionQuality: 0.9) else {return}
-        
-        //reff.putData(imageData,metadata: nil)
-        dismiss(animated: true, completion: nil)
-       
-        
-    }
-    
-   
-     
     func cameraTake(){
         imagePicker.sourceType = .camera
         self.present(imagePicker, animated: true, completion: nil)
@@ -222,9 +209,26 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    
+    
+    // MARK: - 新增物件到資料結構
+    @IBAction func addbutton(_ sender: Any) {
+        
+        let book1 = Book(booktitle: AddBookName.text!, bookauthors: AddBookAuthor.text!, bookISBN: AddBookISBN.text!,bookimage:[""],UploadDate: UploadDate, RentDay:Int(RentDay.text!),owner:owner,renter:nil,rentStatus:rentStatus.Available.rawValue)
+        self.uploadtoFirebase(values: book1)
+        //let reff = Storage.storage().reference().child("\(AddBookName!.text).png")
+        //guard let imageData = addimage?.image?.jpegData(compressionQuality: 0.9) else {return}
+        
+        //reff.putData(imageData,metadata: nil)
+        dismiss(animated: true, completion: nil)
+    }
+    
+   
+     
+    
 
     
-    
+    // MARK: -新增資料到FireBase
    func uploadtoFirebase(values:Book){
     
     
@@ -305,11 +309,22 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     */
     
     // MARK:- SingleTon測試
-    let fetch = NetworkController1()
-    fetch.uploadImage(Info: values, loadImage: [addimage.image!])
-        
+        if addimage.image != nil{
+            let fetch = NetworkController1()
+            fetch.uploadImage(Info: values, loadImage: [addimage.image!])
+        }
+    
+    let SuccessAlert = UIAlertController(title: "Uploaded", message: "", preferredStyle: .alert)
+    let SuccessAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    SuccessAlert.addAction(SuccessAction)
+    DispatchQueue.main.async {
+        self.present(SuccessAlert, animated: true, completion: nil)
     }
     
+    
+    }
+    
+    // MARK: - BarCode Detect
     func infosetup(text:String){
         let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:\(text)")!
         DispatchQueue.global(qos: .userInitiated).async {
@@ -350,7 +365,7 @@ class BookAddViewController: UITableViewController,UIImagePickerControllerDelega
     }
     
     
-    
+    // MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         barDecode?.delegate = self
     }

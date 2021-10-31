@@ -13,10 +13,29 @@ class Book{
     var bookauthors:String
     var bookISBN:String
     var bookimage:[String]?
-    var bookimagedata:[Data]?
+    var UploadDate:String!
+    var RentDay:Int?
     //var booktoexpired:Int
     var key:String
     var ref:DatabaseReference?
+    var owner:String?
+    var renter:String?
+    var rentStatus:Int!
+    
+    
+    init(booktitle:String,bookauthors:String,bookISBN:String,bookimage:[String]?,key:String = "",UploadDate:String,RentDay:Int?,owner:String?,renter:String?,rentStatus:Int?){//},bookimagedata:[Data]?){//,booktoexpired:Int) {
+        self.key = key
+        self.booktitle = booktitle
+        self.bookauthors = bookauthors
+        self.bookISBN = bookISBN
+        self.bookimage = bookimage
+        self.ref = nil
+        self.UploadDate = UploadDate
+        self.RentDay = RentDay
+        self.owner = owner
+        self.renter = renter
+        self.rentStatus = rentStatus
+    }
     
     init(booktitle:String,bookauthors:String,bookISBN:String,bookimage:[String]?,key:String = ""){//},bookimagedata:[Data]?){//,booktoexpired:Int) {
         self.key = key
@@ -24,18 +43,6 @@ class Book{
         self.bookauthors = bookauthors
         self.bookISBN = bookISBN
         self.bookimage = bookimage
-        self.bookimagedata = nil
-        //self.booktoexpired = booktoexpired
-        self.ref = nil
-    }
-    
-    init(booktitle:String,bookauthors:String,bookISBN:String,bookimage:[String]?,key:String = "",bookimagedata:[Data]?){//},bookimagedata:[Data]?){//,booktoexpired:Int) {
-        self.key = key
-        self.booktitle = booktitle
-        self.bookauthors = bookauthors
-        self.bookISBN = bookISBN
-        self.bookimage = bookimage
-        self.bookimagedata = bookimagedata
         //self.booktoexpired = booktoexpired
         self.ref = nil
     }
@@ -48,16 +55,44 @@ class Book{
             booktitle = snapshotValue["booktitle"] as! String
             bookauthors = snapshotValue["bookauthors"] as! String
             bookISBN = snapshotValue["bookISBN"] as! String
-            bookimage = snapshotValue["bookimage"] as? [String]            //booktoexpired = snapshotValue["bookexpired"] as! Int
+            bookimage = snapshotValue["bookimage"] as? [String]
+            //booktoexpired = snapshotValue["bookexpired"] as! Int
+            UploadDate = snapshotValue["UploadDate"] as! String
+            RentDay = snapshotValue["RentDay"] as? Int
+            owner = snapshotValue["owner"] as? String
+            renter = snapshotValue["renter"] as? String
+            rentStatus = snapshotValue["rentStatus"] as? Int
             ref = snapshot.ref
         }
+    
+    init(){
+        
+        self.booktitle = ""
+        self.bookauthors = ""
+        self.bookISBN = ""
+        self.bookimage = [""]
+        self.UploadDate = ""
+        self.rentStatus = 0
+        self.RentDay = 0
+        self.renter = ""
+        self.ref = nil
+        self.key = ""
+        
+    }
+    
     
     func toDictionary()->Any{
         return [
             "booktitle":booktitle,
             "bookauthors":bookauthors,
             "bookISBN":bookISBN,
-            "bookimage":bookimage
+            "bookimage":bookimage,
+            "UploadDate":UploadDate,
+            "RentDay":RentDay,
+            "owner":owner,
+            "renter":renter,
+            "rentStatus":rentStatus
+            
             //"booktoexpired":booktoexpired
         ]
     }
@@ -67,5 +102,6 @@ class Book{
     }
     */
 }
+
 
 

@@ -30,6 +30,7 @@ class NetworkController1{
                 OnlineItem.append(books)
             }
             self.book = OnlineItem
+            
             completion(self.book)
         })
     }
@@ -59,7 +60,7 @@ class NetworkController1{
                                 if let imageURL = imageurl?.absoluteString{
                                     print("imageURL",imageURL)
                                     self.ImageURLArray.append(imageURL)
-                                    let addbook = Book(booktitle: Info.booktitle, bookauthors: Info.bookauthors, bookISBN: Info.bookISBN, bookimage: self.ImageURLArray)
+                                    let addbook = Book(booktitle: Info.booktitle, bookauthors: Info.bookauthors, bookISBN: Info.bookISBN, bookimage: self.ImageURLArray,key:"", UploadDate:Info.UploadDate,RentDay:Info.RentDay,owner:Info.owner, renter: "",rentStatus: Info.rentStatus)
                                 
                                     self.uploadInfo(Info: addbook)
                                     index = index + 1
@@ -67,8 +68,10 @@ class NetworkController1{
                                 }else{print("error",error?.localizedDescription)}})
                 })
                 let addbook = Book(booktitle: Info.booktitle, bookauthors: Info.bookauthors, bookISBN: Info.bookISBN, bookimage: self.ImageURLArray)
-            
+                print("AddBook",addbook)
+                // 先上傳一份到FireBase
                 self.uploadInfo(Info: addbook)
+            
                 
             }
             

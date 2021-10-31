@@ -22,7 +22,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
     var owners = ["acer","asus","apple"]
     var lastdaydata = ["3","5","6"]
     
-    let ref:DatabaseReference = Database.database().reference(withPath: "Book")
+    let ref:DatabaseReference = Database.database().reference(withPath: "BookRent")
     
     
     public var loadingBook:[Book]! = []
@@ -44,9 +44,8 @@ class TableUIViewControllerTableViewController: UITableViewController{
     
         
     override func viewDidLoad() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.loadingloading()
-        }
+        loadingloading()
+        
         
         
         
@@ -69,7 +68,8 @@ class TableUIViewControllerTableViewController: UITableViewController{
             
        })*/
         // MARK: - NetworkController1 to fetch data
-            NetworkController1.shared.fetchInfo(ref:ref,completion: {[weak self](loadBook) in
+        DispatchQueue.global(qos: .userInitiated ).async{
+            NetworkController1.shared.fetchInfo(ref:self.ref,completion: {[weak self](loadBook) in
                 guard let self = self else{return}
                 
                 if let loadBook = loadBook {
@@ -81,7 +81,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
                     }
                 }
             })
-            
+        }
         //}
         
         //self.tableView.reloadData()
@@ -134,6 +134,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
         DispatchQueue.global(qos:.userInitiated).async {
         
         do{
+           
             
             var url = [URL]()
             print("1loadingBookImageDat",self.loadingBook.first?.bookimage)
@@ -159,9 +160,9 @@ class TableUIViewControllerTableViewController: UITableViewController{
             print("im",im)
             print("im done")
             
-            self.loadingBook.first?.bookimagedata = im
-            print("loaingBook.first.bookimageData",self.loadingBook.first?.bookimagedata)
-            print("inside loadingBook image")
+            //self.loadingBook.first?.bookimagedata = im
+            //print("loaingBook.first.bookimageData",self.loadingBook.first?.bookimagedata)
+            //print("inside loadingBook image")
             
             
         
@@ -183,7 +184,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
     
     @objc func fetchResponse(){
         
-        let ref = Database.database().reference(withPath: "Book")
+        let ref = Database.database().reference(withPath: "BookRent")
         ref.queryOrdered(byChild: "booktitle").observe(.value, with: {(snapshot) in
             self.loadingBook = [Book]()
             for item in snapshot.children{
@@ -249,7 +250,7 @@ class TableUIViewControllerTableViewController: UITableViewController{
         cell.bookname.text = loadBook[indexPath.row].booktitle
         cell.author.text = loadBook[indexPath.row].bookauthors
         cell.owner.text = loadBook[indexPath.row].booktitle
-        cell.count_day.text = String(indexPath.row)
+        cell.count_day.text = String(loadBook[indexPath.row].RentDay!)
         cell.backgroundColor = .init(red: 201, green: 148, blue: 115, alpha: 0)
 
         return cell
