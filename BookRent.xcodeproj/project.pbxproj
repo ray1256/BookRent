@@ -68,7 +68,7 @@
 		EB4CB1B926FC880200A592DD /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		EB4CB1BB2700BC8500A592DD /* MemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewController.swift; sourceTree = "<group>"; };
 		EB4CB1BF2706BC7600A592DD /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		EB4CB1C32706CB1100A592DD /* 73734-logo-anmation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "73734-logo-anmation.json"; path = "../../../../73734-logo-anmation.json"; sourceTree = "<group>"; };
+		EB4CB1C32706CB1100A592DD /* 73734-logo-anmation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "73734-logo-anmation.json"; sourceTree = "<group>"; };
 		EB4CB1C52706EA9B00A592DD /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		EB56586026EF49C400C3B2D7 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		EB56586126EF49C400C3B2D7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
